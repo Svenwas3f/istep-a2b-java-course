@@ -1,0 +1,924 @@
+<div class="content-header">
+    <h1>Lesson 2: Variables, Primitive Data Types, and Expressions</h1>
+</div>
+
+<div class="section">
+    <h2>Welcome to Lesson 2! 🚀</h2>
+    <p>In Lesson 1, you learned how to create simple programs that print messages. Now we'll make your programs much more powerful by learning how to store and work with information!</p>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>What Are Variables?</h2>
+    <p>Imagine your computer's memory as a giant warehouse with millions of storage boxes. A <strong>variable</strong> is like putting a label on one of those boxes so you can store something in it and find it later!</p>
+    
+    <h3>Real-Life Example</h3>
+    <p>Think about your school locker:</p>
+    <ul>
+        <li>The <strong>locker number</strong> is like a <strong>variable name</strong></li>
+        <li>The <strong>stuff inside</strong> your locker is like the <strong>value</strong> stored in the variable</li>
+        <li>You can put new things in your locker or take things out - just like you can change the value of a variable!</li>
+    </ul>
+    
+    <h3>Why Do We Need Variables?</h3>
+    <p>Without variables, every time your program needed to remember something, you'd have to type it all over again. With variables, you can:</p>
+    <ul>
+        <li>Store information (like a player's score in a game)</li>
+        <li>Remember user input (like someone's name)</li>
+        <li>Perform calculations (like adding numbers together)</li>
+        <li>Make your programs flexible and reusable</li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Part 1: Creating and Using Variables</h2>
+    <p>Let's start by creating a simple program that uses variables!</p>
+    
+    <h3>Example 1: Your First Variable</h3>
+    <p>Create a new file called <code>MyFirstVariables.java</code> in the <code>lesson2</code> folder:</p>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson2;
+
+public class MyFirstVariables {
+    public static void main(String[] args) {
+        // Create a variable
+        int age;
+        
+        // Put a value in the variable
+        age = 14;
+        
+        // Use the variable
+        System.out.println("I am " + age + " years old!");
+    }
+}</code></pre>
+    
+    <p><strong>Let's break this down:</strong></p>
+    <ol>
+        <li><code>int age;</code> - This is <strong>variable declaration</strong>
+            <ul>
+                <li><code>int</code> tells Java this variable will store whole numbers (integers)</li>
+                <li><code>age</code> is the name we chose for our variable</li>
+                <li>The semicolon <code>;</code> ends the statement</li>
+            </ul>
+        </li>
+        <li><code>age = 14;</code> - This is <strong>variable assignment</strong>
+            <ul>
+                <li>We're putting the value <code>14</code> into the variable named <code>age</code></li>
+                <li>The <code>=</code> symbol means "assign" or "store"</li>
+            </ul>
+        </li>
+        <li><code>System.out.println("I am " + age + " years old!");</code>
+            <ul>
+                <li>The <code>+</code> symbol joins (concatenates) text and the variable</li>
+                <li>Java replaces <code>age</code> with its value: <code>14</code></li>
+            </ul>
+        </li>
+    </ol>
+    
+    <p><strong>Output:</strong></p>
+    <pre><code class="language-bash">I am 14 years old!</code></pre>
+    
+    <h3>Example 2: Declaration and Assignment Together</h3>
+    <p>You can declare and assign a value at the same time:</p>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson2;
+
+public class MyFirstVariables {
+    public static void main(String[] args) {
+        int age = 14;
+        String name = "Alex";
+        
+        System.out.println("Hello! My name is " + name);
+        System.out.println("I am " + age + " years old!");
+    }
+}</code></pre>
+    
+    <p><strong>Output:</strong></p>
+    <pre><code class="language-bash">Hello! My name is Alex
+I am 14 years old!</code></pre>
+    
+    <h3>Example 3: Changing Variable Values</h3>
+    <p>Variables can change - that's why they're called <em>variables</em>!</p>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson2;
+
+public class ChangingVariables {
+    public static void main(String[] args) {
+        int score = 0;
+        System.out.println("Starting score: " + score);
+        
+        score = 10;
+        System.out.println("After level 1: " + score);
+        
+        score = 25;
+        System.out.println("After level 2: " + score);
+        
+        score = 50;
+        System.out.println("Final score: " + score);
+    }
+}</code></pre>
+    
+    <p><strong>Output:</strong></p>
+    <pre><code class="language-bash">Starting score: 0
+After level 1: 10
+After level 2: 25
+Final score: 50</code></pre>
+    
+    <h3>Variable Naming Rules</h3>
+    <p>Java has specific rules for naming variables:</p>
+    
+    <p><strong>MUST follow these rules:</strong></p>
+    <ol>
+        <li>Names can contain letters, digits, underscores <code>_</code>, and dollar signs <code>$</code></li>
+        <li>Names must start with a letter, <code>_</code>, or <code>$</code> (not a digit)</li>
+        <li>Names are case-sensitive (<code>age</code> and <code>Age</code> are different!)</li>
+        <li>Names cannot be Java keywords (like <code>int</code>, <code>class</code>, <code>public</code>)</li>
+    </ol>
+    
+    <p><strong>Good variable names:</strong></p>
+    <pre><code class="language-java">int age;           // ✅ Simple and clear
+int studentAge;    // ✅ Descriptive
+int student_age;   // ✅ Using underscore
+int age2;          // ✅ Contains number</code></pre>
+    
+    <p><strong>Bad variable names:</strong></p>
+    <pre><code class="language-java">int 2age;          // ❌ Starts with number
+int student-age;   // ❌ Contains hyphen
+int class;         // ❌ Java keyword</code></pre>
+    
+    <p><strong>Best Practices</strong> (not required, but recommended):</p>
+    <ul>
+        <li>Use meaningful names: <code>age</code> is better than <code>a</code></li>
+        <li>Use camelCase: <code>studentAge</code> (first word lowercase, then capitalize each new word)</li>
+        <li>Make names descriptive: <code>highScore</code> is better than <code>hs</code></li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Part 2: Primitive Data Types</h2>
+    <p>Java has different <strong>types</strong> of data, just like you have different types of containers in real life (bottles for liquids, boxes for solid items, envelopes for papers).</p>
+    
+    <p>There are <strong>8 primitive data types</strong> in Java. Let's learn about them!</p>
+    
+    <h3>1. Integer Data Types</h3>
+    <p>These store whole numbers (no decimals).</p>
+    
+    <h4><code>byte</code> - Very Small Numbers</h4>
+    
+    <pre><code class="language-java">byte age = 12;
+byte temperature = -5;</code></pre>
+    
+    <ul>
+        <li><strong>Size:</strong> 8 bits (1 byte)</li>
+        <li><strong>Range:</strong> -128 to 127</li>
+        <li><strong>Use when:</strong> You need to save memory with small numbers</li>
+        <li><strong>Real-world examples:</strong> Person's age, small counts, temperature in Celsius</li>
+    </ul>
+    
+    <p><strong>Example Program:</strong></p>
+    <pre><code class="language-java">package al.istep.javacourse.lesson2;
+
+public class ByteExample {
+    public static void main(String[] args) {
+        byte players = 4;
+        byte maxLevel = 100;
+        byte temperature = -10;
+        
+        System.out.println("Number of players: " + players);
+        System.out.println("Maximum level: " + maxLevel);
+        System.out.println("Temperature: " + temperature + "°C");
+    }
+}</code></pre>
+    
+    <h4><code>short</code> - Small Numbers</h4>
+    
+    <pre><code class="language-java">short year = 2024;
+short elevation = 1500;</code></pre>
+    
+    <ul>
+        <li><strong>Size:</strong> 16 bits (2 bytes)</li>
+        <li><strong>Range:</strong> -32,768 to 32,767</li>
+        <li><strong>Use when:</strong> You need numbers larger than byte but want to save memory</li>
+        <li><strong>Real-world examples:</strong> Years, altitudes, small measurements</li>
+    </ul>
+    
+    <h4><code>int</code> - Regular Numbers (Most Common!)</h4>
+    
+    <pre><code class="language-java">int population = 8000000;
+int score = 12450;</code></pre>
+    
+    <ul>
+        <li><strong>Size:</strong> 32 bits (4 bytes)</li>
+        <li><strong>Range:</strong> -2,147,483,648 to 2,147,483,647 (about -2 billion to 2 billion)</li>
+        <li><strong>Use when:</strong> This is the default choice for whole numbers!</li>
+        <li><strong>Real-world examples:</strong> Prices in cents, populations, game scores, distances</li>
+    </ul>
+    
+    <p><strong>Example Program:</strong></p>
+    <pre><code class="language-java">package al.istep.javacourse.lesson2;
+
+public class IntExample {
+    public static void main(String[] args) {
+        int population = 8500000;
+        int distanceToMoon = 384400;  // in kilometers
+        int bankBalance = 1250;       // in cents ($12.50)
+        
+        System.out.println("City population: " + population);
+        System.out.println("Distance to moon: " + distanceToMoon + " km");
+        System.out.println("Bank balance: $" + (bankBalance / 100.0));
+    }
+}</code></pre>
+    
+    <h4><code>long</code> - Really Big Numbers</h4>
+    
+    <pre><code class="language-java">long worldPopulation = 8000000000L;
+long distanceToSun = 149600000L;</code></pre>
+    
+    <ul>
+        <li><strong>Size:</strong> 64 bits (8 bytes)</li>
+        <li><strong>Range:</strong> -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807 (huge!)</li>
+        <li><strong>Use when:</strong> int is too small</li>
+        <li><strong>Important:</strong> Add <code>L</code> at the end of long numbers</li>
+        <li><strong>Real-world examples:</strong> World population, astronomical distances, big data</li>
+    </ul>
+    
+    <p><strong>Example Program:</strong></p>
+    <pre><code class="language-java">package al.istep.javacourse.lesson2;
+
+public class LongExample {
+    public static void main(String[] args) {
+        long worldPopulation = 8000000000L;
+        long secondsInYear = 31536000L;
+        long distanceToSun = 149600000L;  // in kilometers
+        
+        System.out.println("World population: " + worldPopulation);
+        System.out.println("Seconds in a year: " + secondsInYear);
+        System.out.println("Distance to sun: " + distanceToSun + " km");
+    }
+}</code></pre>
+    
+    <h3>2. Floating-Point Number Data Types</h3>
+    <p>These store numbers with decimal points.</p>
+    
+    <h4><code>double</code> - Decimal Numbers (More Precise!)</h4>
+    
+    <pre><code class="language-java">double pi = 3.14159265359;
+double distance = 123.456789;</code></pre>
+    
+    <ul>
+        <li><strong>Size:</strong> 64 bits (8 bytes)</li>
+        <li><strong>Precision:</strong> About 15 decimal digits</li>
+        <li><strong>Use when:</strong> This is the default choice for decimal numbers!</li>
+        <li><strong>Real-world examples:</strong> Scientific calculations, precise measurements, coordinates</li>
+    </ul>
+    
+    <p><strong>Example Program:</strong></p>
+    <pre><code class="language-java">package al.istep.javacourse.lesson2;
+
+public class DoubleExample {
+    public static void main(String[] args) {
+        double pi = 3.14159265359;
+        double gravity = 9.81;
+        double latitude = 48.8566;
+        double longitude = 2.3522;
+        
+        System.out.println("Pi: " + pi);
+        System.out.println("Gravity: " + gravity + " m/s²");
+        System.out.println("Paris coordinates:");
+        System.out.println("  Latitude: " + latitude);
+        System.out.println("  Longitude: " + longitude);
+    }
+}</code></pre>
+    
+    <h4><code>float</code> - Decimal Numbers (Less Precise)</h4>
+    
+    <pre><code class="language-java">float price = 19.99f;
+float temperature = 36.6f;</code></pre>
+    
+    <ul>
+        <li><strong>Size:</strong> 32 bits (4 bytes)</li>
+        <li><strong>Precision:</strong> About 6-7 decimal digits</li>
+        <li><strong>Important:</strong> Add <code>f</code> at the end of float numbers</li>
+        <li><strong>Use when:</strong> You need decimals but don't need high precision</li>
+        <li><strong>Real-world examples:</strong> Prices, temperatures, percentages</li>
+    </ul>
+    
+    <p><strong>Tip:</strong> Use <code>double</code> unless memory is very limited. It's more precise and easier to work with!</p>
+    
+    <h3>3. Character Data Type</h3>
+    
+    <h4><code>char</code> - A Single Character</h4>
+    
+    <pre><code class="language-java">char grade = 'A';
+char initial = 'J';
+char symbol = '$';</code></pre>
+    
+    <ul>
+        <li><strong>Size:</strong> 16 bits (2 bytes)</li>
+        <li><strong>Stores:</strong> A single character</li>
+        <li><strong>Important:</strong> Use single quotes <code>'</code> not double quotes <code>"</code></li>
+        <li><strong>Real-world examples:</strong> Grades, initials, single symbols</li>
+    </ul>
+    
+    <p><strong>Example Program:</strong></p>
+    <pre><code class="language-java">package al.istep.javacourse.lesson2;
+
+public class CharExample {
+    public static void main(String[] args) {
+        char grade = 'A';
+        char firstInitial = 'J';
+        char lastInitial = 'S';
+        char currency = '$';
+        char letter = 'Z';
+        
+        System.out.println("Grade: " + grade);
+        System.out.println("Initials: " + firstInitial + "." + lastInitial + ".");
+        System.out.println("Currency symbol: " + currency);
+        System.out.println("Last letter of alphabet: " + letter);
+    }
+}</code></pre>
+    
+    <p><strong>Special Characters:</strong></p>
+    <pre><code class="language-java">char newline = '\n';     // New line
+char tab = '\t';         // Tab
+char backslash = '\\';   // Backslash
+char quote = '\'';       // Single quote</code></pre>
+    
+    <h3>4. Boolean Data Type</h3>
+    
+    <h4><code>boolean</code> - True or False</h4>
+    
+    <pre><code class="language-java">boolean isRaining = true;
+boolean gameOver = false;</code></pre>
+    
+    <ul>
+        <li><strong>Size:</strong> 1 bit (but usually stored in 1 byte)</li>
+        <li><strong>Values:</strong> Only <code>true</code> or <code>false</code></li>
+        <li><strong>Use when:</strong> You need yes/no, on/off, true/false answers</li>
+        <li><strong>Real-world examples:</strong> Light switches, game states, conditions</li>
+    </ul>
+    
+    <p><strong>Example Program:</strong></p>
+    <pre><code class="language-java">package al.istep.javacourse.lesson2;
+
+public class BooleanExample {
+    public static void main(String[] args) {
+        boolean isRaining = true;
+        boolean isSunny = false;
+        boolean hasHomework = true;
+        boolean isWeekend = false;
+        boolean isHungry = true;
+        
+        System.out.println("Is it raining? " + isRaining);
+        System.out.println("Is it sunny? " + isSunny);
+        System.out.println("Do I have homework? " + hasHomework);
+        System.out.println("Is it the weekend? " + isWeekend);
+        System.out.println("Am I hungry? " + isHungry);
+    }
+}</code></pre>
+    
+    <p><strong>Fun Example - Game Status:</strong></p>
+    <pre><code class="language-java">package al.istep.javacourse.lesson2;
+
+public class GameStatus {
+    public static void main(String[] args) {
+        boolean playerAlive = true;
+        boolean hasKey = false;
+        boolean doorLocked = true;
+        boolean gameWon = false;
+        
+        System.out.println("=== GAME STATUS ===");
+        System.out.println("Player alive: " + playerAlive);
+        System.out.println("Has key: " + hasKey);
+        System.out.println("Door locked: " + doorLocked);
+        System.out.println("Game won: " + gameWon);
+        
+        // Find the key!
+        hasKey = true;
+        System.out.println("\n*You found a key!*");
+        System.out.println("Has key: " + hasKey);
+        
+        // Unlock the door!
+        doorLocked = false;
+        System.out.println("\n*You unlocked the door!*");
+        System.out.println("Door locked: " + doorLocked);
+        
+        // Win the game!
+        gameWon = true;
+        System.out.println("\n*You escaped and won!*");
+        System.out.println("Game won: " + gameWon);
+    }
+}</code></pre>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Part 3: Constants</h2>
+    <p>Sometimes you want a variable that never changes - that's called a <strong>constant</strong>!</p>
+    
+    <h3>Using the <code>final</code> Keyword</h3>
+    
+    <pre><code class="language-java">final double PI = 3.14159265359;
+final int DAYS_IN_WEEK = 7;
+final String SCHOOL_NAME = "Lincoln Middle School";</code></pre>
+    
+    <ul>
+        <li>Use the <code>final</code> keyword before the type</li>
+        <li>Convention: Use ALL_CAPS for constant names</li>
+        <li>Once assigned, the value can never change!</li>
+    </ul>
+    
+    <p><strong>Example Program:</strong></p>
+    <pre><code class="language-java">package al.istep.javacourse.lesson2;
+
+public class ConstantsExample {
+    public static void main(String[] args) {
+        final double PI = 3.14159265359;
+        final int DAYS_IN_WEEK = 7;
+        final int HOURS_IN_DAY = 24;
+        final int SPEED_OF_LIGHT = 299792458;  // in meters per second
+        
+        System.out.println("Mathematical constants:");
+        System.out.println("Pi = " + PI);
+        
+        System.out.println("\nTime constants:");
+        System.out.println("Days in a week: " + DAYS_IN_WEEK);
+        System.out.println("Hours in a day: " + HOURS_IN_DAY);
+        
+        System.out.println("\nPhysics constants:");
+        System.out.println("Speed of light: " + SPEED_OF_LIGHT + " m/s");
+    }
+}</code></pre>
+    
+    <p><strong>Why use constants?</strong></p>
+    <ul>
+        <li>Makes code more readable: <code>DAYS_IN_WEEK</code> is clearer than <code>7</code></li>
+        <li>Prevents accidental changes: Compiler stops you from changing values</li>
+        <li>Easy to update: Change in one place, applies everywhere</li>
+        <li>Documents intent: Shows that a value is meant to never change</li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Part 4: Expressions and Operators</h2>
+    <p>An <strong>expression</strong> is a combination of values, variables, and operators that produces a result.</p>
+    
+    <p>Think of it like a math problem: <code>5 + 3</code> is an expression that equals <code>8</code>.</p>
+    
+    <h3>Arithmetic Operators</h3>
+    <p>Just like in math class, Java can do calculations!</p>
+    
+    <h4>Basic Operations</h4>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson2;
+
+public class BasicMath {
+    public static void main(String[] args) {
+        int a = 10;
+        int b = 3;
+        
+        int sum = a + b;           // Addition
+        int difference = a - b;    // Subtraction
+        int product = a * b;       // Multiplication
+        int quotient = a / b;      // Division
+        int remainder = a % b;     // Modulus (remainder)
+        
+        System.out.println("a = " + a);
+        System.out.println("b = " + b);
+        System.out.println();
+        System.out.println("a + b = " + sum);           // 13
+        System.out.println("a - b = " + difference);    // 7
+        System.out.println("a * b = " + product);       // 30
+        System.out.println("a / b = " + quotient);      // 3 (not 3.33!)
+        System.out.println("a % b = " + remainder);     // 1
+    }
+}</code></pre>
+    
+    <p><strong>Output:</strong></p>
+    <pre><code class="language-bash">a = 10
+b = 3
+
+a + b = 13
+a - b = 7
+a * b = 30
+a / b = 3
+a % b = 1</code></pre>
+    
+    <h4>Understanding the Modulus Operator <code>%</code></h4>
+    <p>The modulus operator <code>%</code> gives you the <strong>remainder</strong> after division.</p>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson2;
+
+public class ModulusExamples {
+    public static void main(String[] args) {
+        System.out.println("Understanding Modulus (%):");
+        System.out.println();
+        
+        System.out.println("10 % 3 = " + (10 % 3));  // 1 (10 ÷ 3 = 3 remainder 1)
+        System.out.println("15 % 4 = " + (15 % 4));  // 3 (15 ÷ 4 = 3 remainder 3)
+        System.out.println("20 % 5 = " + (20 % 5));  // 0 (20 ÷ 5 = 4 remainder 0)
+        System.out.println("7 % 2 = " + (7 % 2));    // 1 (odd number!)
+        System.out.println("8 % 2 = " + (8 % 2));    // 0 (even number!)
+    }
+}</code></pre>
+    
+    <h4>Integer Division vs. Decimal Division</h4>
+    <p><strong>Important concept!</strong> When you divide two integers, Java gives you an integer result (it drops the decimal part).</p>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson2;
+
+public class DivisionTypes {
+    public static void main(String[] args) {
+        // Integer division
+        int a = 10;
+        int b = 3;
+        int result1 = a / b;
+        System.out.println("Integer division: 10 / 3 = " + result1);  // 3 (not 3.33!)
+        
+        // Decimal division
+        double c = 10.0;
+        double d = 3.0;
+        double result2 = c / d;
+        System.out.println("Decimal division: 10.0 / 3.0 = " + result2);  // 3.333...
+        
+        // Mixed division (one is double)
+        double result3 = a / 3.0;  // 3.0 makes it decimal division
+        System.out.println("Mixed division: 10 / 3.0 = " + result3);  // 3.333...
+    }
+}</code></pre>
+    
+    <h3>Unary Operators</h3>
+    <p><strong>Unary</strong> means it works on just one value.</p>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson2;
+
+public class UnaryOperators {
+    public static void main(String[] args) {
+        int a = 5;
+        int b = -3;
+        
+        System.out.println("Original values:");
+        System.out.println("a = " + a);
+        System.out.println("b = " + b);
+        System.out.println();
+        
+        // Unary plus (doesn't really do anything)
+        int result1 = +a;
+        System.out.println("+a = " + result1);  // 5
+        
+        // Unary minus (changes sign)
+        int result2 = -a;
+        System.out.println("-a = " + result2);  // -5
+        
+        int result3 = -b;
+        System.out.println("-b = " + result3);  // 3 (negative of -3)
+    }
+}</code></pre>
+    
+    <h3>Increment and Decrement Operators</h3>
+    <p>These are shortcuts for adding or subtracting 1!</p>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson2;
+
+public class IncrementDecrement {
+    public static void main(String[] args) {
+        int score = 10;
+        
+        System.out.println("Starting score: " + score);
+        
+        // Increment (add 1)
+        score++;  // Same as: score = score + 1;
+        System.out.println("After score++: " + score);  // 11
+        
+        // Increment again
+        score++;
+        System.out.println("After score++: " + score);  // 12
+        
+        // Decrement (subtract 1)
+        score--;  // Same as: score = score - 1;
+        System.out.println("After score--: " + score);  // 11
+        
+        // You can also use ++score and --score
+        ++score;
+        System.out.println("After ++score: " + score);  // 12
+        
+        --score;
+        System.out.println("After --score: " + score);  // 11
+    }
+}</code></pre>
+    
+    <h3>Compound Assignment Operators</h3>
+    <p>These are shortcuts for common operations!</p>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson2;
+
+public class CompoundAssignment {
+    public static void main(String[] args) {
+        int score = 100;
+        
+        System.out.println("Starting score: " + score);
+        
+        // Add and assign
+        score += 50;  // Same as: score = score + 50;
+        System.out.println("After score += 50: " + score);  // 150
+        
+        // Subtract and assign
+        score -= 30;  // Same as: score = score - 30;
+        System.out.println("After score -= 30: " + score);  // 120
+        
+        // Multiply and assign
+        score *= 2;   // Same as: score = score * 2;
+        System.out.println("After score *= 2: " + score);  // 240
+        
+        // Divide and assign
+        score /= 4;   // Same as: score = score / 4;
+        System.out.println("After score /= 4: " + score);  // 60
+        
+        // Modulus and assign
+        score %= 7;   // Same as: score = score % 7;
+        System.out.println("After score %= 7: " + score);  // 4
+    }
+}</code></pre>
+    
+    <p><strong>All Compound Operators:</strong></p>
+    <ul>
+        <li><code>+=</code> (add and assign)</li>
+        <li><code>-=</code> (subtract and assign)</li>
+        <li><code>*=</code> (multiply and assign)</li>
+        <li><code>/=</code> (divide and assign)</li>
+        <li><code>%=</code> (modulus and assign)</li>
+    </ul>
+    
+    <h3>Operator Precedence</h3>
+    <p>Just like in math, Java follows an order of operations!</p>
+    
+    <p><strong>Remember PEMDAS from math class?</strong></p>
+    <ul>
+        <li><strong>P</strong>arentheses</li>
+        <li><strong>E</strong>xponents (not covered yet)</li>
+        <li><strong>M</strong>ultiplication and <strong>D</strong>ivision (left to right)</li>
+        <li><strong>A</strong>ddition and <strong>S</strong>ubtraction (left to right)</li>
+    </ul>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson2;
+
+public class OperatorPrecedence {
+    public static void main(String[] args) {
+        // Without parentheses
+        int result1 = 5 + 3 * 2;
+        System.out.println("5 + 3 * 2 = " + result1);  // 11 (not 16!)
+        // Explanation: 3 * 2 = 6, then 5 + 6 = 11
+        
+        // With parentheses
+        int result2 = (5 + 3) * 2;
+        System.out.println("(5 + 3) * 2 = " + result2);  // 16
+        // Explanation: 5 + 3 = 8, then 8 * 2 = 16
+        
+        // More examples
+        int result3 = 10 - 4 + 2;
+        System.out.println("10 - 4 + 2 = " + result3);  // 8 (left to right)
+        
+        int result4 = 10 / 2 * 3;
+        System.out.println("10 / 2 * 3 = " + result4);  // 15 (left to right)
+        
+        int result5 = 10 - (4 + 2);
+        System.out.println("10 - (4 + 2) = " + result5);  // 4
+    }
+}</code></pre>
+    
+    <p><strong>Pro Tip:</strong> When in doubt, use parentheses! They make your code clearer even when not strictly needed.</p>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Part 5: Putting It All Together</h2>
+    <p>Let's create some complete programs that use everything we learned!</p>
+    
+    <h3>Example 1: Circle Calculator</h3>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson2;
+
+public class CircleCalculator {
+    public static void main(String[] args) {
+        final double PI = 3.14159265359;
+        
+        double radius = 5.0;
+        
+        // Calculate circumference: C = 2 * π * r
+        double circumference = 2 * PI * radius;
+        
+        // Calculate area: A = π * r²
+        double area = PI * radius * radius;
+        
+        System.out.println("=== CIRCLE CALCULATOR ===");
+        System.out.println("Radius: " + radius + " units");
+        System.out.println("Circumference: " + circumference + " units");
+        System.out.println("Area: " + area + " square units");
+    }
+}</code></pre>
+    
+    <h3>Example 2: Temperature Converter</h3>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson2;
+
+public class TemperatureConverter {
+    public static void main(String[] args) {
+        double celsius = 25.0;
+        
+        // Convert to Fahrenheit: F = (C × 9/5) + 32
+        double fahrenheit = (celsius * 9.0 / 5.0) + 32.0;
+        
+        // Convert to Kelvin: K = C + 273.15
+        double kelvin = celsius + 273.15;
+        
+        System.out.println("=== TEMPERATURE CONVERTER ===");
+        System.out.println(celsius + "°C is equal to:");
+        System.out.println("  " + fahrenheit + "°F");
+        System.out.println("  " + kelvin + " K");
+    }
+}</code></pre>
+    
+    <h3>Example 3: Time Calculator</h3>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson2;
+
+public class TimeCalculator {
+    public static void main(String[] args) {
+        int totalSeconds = 3725;  // Some number of seconds
+        
+        // Calculate hours
+        int hours = totalSeconds / 3600;
+        int remainingSeconds = totalSeconds % 3600;
+        
+        // Calculate minutes
+        int minutes = remainingSeconds / 60;
+        
+        // Calculate remaining seconds
+        int seconds = remainingSeconds % 60;
+        
+        System.out.println("=== TIME CALCULATOR ===");
+        System.out.println(totalSeconds + " seconds is equal to:");
+        System.out.println(hours + " hours, " + minutes + " minutes, and " + seconds + " seconds");
+    }
+}</code></pre>
+    
+    <p><strong>Output:</strong></p>
+    <pre><code class="language-bash">=== TIME CALCULATOR ===
+3725 seconds is equal to:
+1 hours, 2 minutes, and 5 seconds</code></pre>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Common Mistakes and How to Fix Them</h2>
+    
+    <h3>1. Using a variable before declaring it</h3>
+    <p><strong>Wrong:</strong></p>
+    <pre><code class="language-java">age = 14;  // ❌ Error: age not declared
+int age;</code></pre>
+    
+    <p><strong>Correct:</strong></p>
+    <pre><code class="language-java">int age;   // ✅ Declare first
+age = 14;  // Then assign</code></pre>
+    
+    <h3>2. Assigning the wrong type</h3>
+    <p><strong>Wrong:</strong></p>
+    <pre><code class="language-java">int age = 14.5;  // ❌ Error: can't put decimal in int</code></pre>
+    
+    <p><strong>Correct:</strong></p>
+    <pre><code class="language-java">double age = 14.5;  // ✅ Use double for decimals</code></pre>
+    
+    <h3>3. Forgot semicolon</h3>
+    <p><strong>Wrong:</strong></p>
+    <pre><code class="language-java">int age = 14  // ❌ Error: missing semicolon</code></pre>
+    
+    <p><strong>Correct:</strong></p>
+    <pre><code class="language-java">int age = 14;  // ✅ Don't forget the semicolon!</code></pre>
+    
+    <h3>4. Integer division surprise</h3>
+    <p><strong>Problem:</strong></p>
+    <pre><code class="language-java">int result = 10 / 3;  // result is 3, not 3.333...</code></pre>
+    
+    <p><strong>Solution:</strong></p>
+    <pre><code class="language-java">double result = 10.0 / 3.0;  // result is 3.333...</code></pre>
+    
+    <h3>5. Trying to change a constant</h3>
+    <p><strong>Wrong:</strong></p>
+    <pre><code class="language-java">final int DAYS = 7;
+DAYS = 8;  // ❌ Error: cannot assign to final variable</code></pre>
+    
+    <p><strong>Correct:</strong></p>
+    <pre><code class="language-java">int days = 7;
+days = 8;  // ✅ Remove 'final' if you need to change it</code></pre>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Practice Exercises</h2>
+    
+    <h3>Exercise 1: Personal Info</h3>
+    <p>Create a program that stores and displays:</p>
+    <ul>
+        <li>Your name (String)</li>
+        <li>Your age (int)</li>
+        <li>Your height in meters (double)</li>
+        <li>Your favorite subject (String)</li>
+        <li>Whether you like programming (boolean)</li>
+    </ul>
+    
+    <h3>Exercise 2: Rectangle Calculator</h3>
+    <p>Write a program that:</p>
+    <ul>
+        <li>Stores the length and width of a rectangle</li>
+        <li>Calculates and displays the perimeter (2 × length + 2 × width)</li>
+        <li>Calculates and displays the area (length × width)</li>
+    </ul>
+    
+    <h3>Exercise 3: Money Calculator</h3>
+    <p>Create a program that:</p>
+    <ul>
+        <li>Starts with $100</li>
+        <li>Subtracts $25 for a game</li>
+        <li>Adds $15 for helping with chores</li>
+        <li>Subtracts $30 for a book</li>
+        <li>Displays the remaining money</li>
+    </ul>
+    
+    <h3>Exercise 4: Pizza Party</h3>
+    <p>Write a program that:</p>
+    <ul>
+        <li>Stores the number of people at a party</li>
+        <li>Stores the number of pizzas</li>
+        <li>Each pizza has 8 slices</li>
+        <li>Calculate and display:
+            <ul>
+                <li>Total slices</li>
+                <li>Slices per person (use integer division)</li>
+                <li>Leftover slices (use modulus)</li>
+            </ul>
+        </li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Summary: What You Learned</h2>
+    
+    <p>In this lesson, you learned:</p>
+    <ul>
+        <li>✅ <strong>Variables:</strong> How to store and use information</li>
+        <li>✅ <strong>Variable Declaration:</strong> Creating variables</li>
+        <li>✅ <strong>Variable Assignment:</strong> Putting values in variables</li>
+        <li>✅ <strong>Primitive Data Types:</strong>
+            <ul>
+                <li>Integer types: <code>byte</code>, <code>short</code>, <code>int</code>, <code>long</code></li>
+                <li>Floating-point types: <code>float</code>, <code>double</code></li>
+                <li>Character type: <code>char</code></li>
+                <li>Boolean type: <code>boolean</code></li>
+            </ul>
+        </li>
+        <li>✅ <strong>Constants:</strong> Using <code>final</code> for values that don't change</li>
+        <li>✅ <strong>Arithmetic Operators:</strong> <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, <code>%</code></li>
+        <li>✅ <strong>Unary Operators:</strong> <code>+</code>, <code>-</code></li>
+        <li>✅ <strong>Increment/Decrement:</strong> <code>++</code>, <code>--</code></li>
+        <li>✅ <strong>Compound Assignment:</strong> <code>+=</code>, <code>-=</code>, <code>*=</code>, <code>/=</code>, <code>%=</code></li>
+        <li>✅ <strong>Operator Precedence:</strong> Order of operations</li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Additional Tips for Success</h2>
+    <ul>
+        <li><strong>Type along:</strong> Don't just read - type every example yourself!</li>
+        <li><strong>Experiment:</strong> Change values and see what happens</li>
+        <li><strong>Make mistakes:</strong> Errors are how you learn - don't fear them!</li>
+        <li><strong>Take breaks:</strong> Give your brain time to process new information</li>
+        <li><strong>Practice daily:</strong> Even 15 minutes a day makes a big difference</li>
+        <li><strong>Ask questions:</strong> No question is too small or silly</li>
+        <li><strong>Have fun:</strong> Programming is creative and fun!</li>
+    </ul>
+    
+    <p><strong>Remember:</strong> Every expert programmer was once exactly where you are now. You've got this! 💪🚀</p>
+</div>
+
+<div class="section" style="margin-top: 40px; padding-top: 20px; border-top: 2px solid var(--istep-border);">
+    <p>
+        <a href="?page=lesson1" data-page="lesson1" style="padding: 10px 20px; background-color: var(--istep-orange-50); color: var(--istep-dunkelblau); text-decoration: none; border-radius: 5px; display: inline-block; margin-right: 10px;">
+            ← Previous: Lesson 1
+        </a>
+    </p>
+</div>

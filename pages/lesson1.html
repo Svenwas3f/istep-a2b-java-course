@@ -1,0 +1,569 @@
+<div class="content-header">
+    <h1>Lesson 1: Installing Java and Creating Your First Program</h1>
+</div>
+
+<div class="section">
+    <h2>Welcome to your Java programming journey! 🎉</h2>
+    <p>In this lesson, you'll set up everything you need to start coding in Java and create your very first program.</p>
+</div>
+
+<div class="section">
+    <h2>What is Java?</h2>
+    <p>Java is a programming language that lets you tell computers what to do. Think of it like learning a new language to talk to your computer! With Java, you can:</p>
+    <ul>
+        <li>Create games</li>
+        <li>Build apps for phones</li>
+        <li>Make websites</li>
+        <li>Control robots</li>
+        <li>And much more!</li>
+    </ul>
+    <p>Java was created in 1995 by a company called Sun Microsystems (now owned by Oracle). Today, millions of programmers around the world use Java, and it's one of the most popular programming languages ever created!</p>
+    
+    <h3>Why is Java Special?</h3>
+    <ol>
+        <li><strong>Write Once, Run Anywhere:</strong> You can write a Java program on your Windows computer, and it will also work on Mac or Linux computers without any changes!</li>
+        <li><strong>Easy to Learn:</strong> Java has clear rules and structure, making it great for beginners.</li>
+        <li><strong>Very Popular:</strong> Many companies use Java, so learning it is a valuable skill.</li>
+        <li><strong>Safe:</strong> Java has built-in protections to prevent many common programming mistakes.</li>
+    </ol>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Part 1: Installing Java (JDK)</h2>
+    <p>JDK stands for "Java Development Kit" - it's a special toolbox that contains everything you need to write and run Java programs.</p>
+    
+    <h3>Step 1: Download Java JDK 17</h3>
+    <ol>
+        <li><strong>Open your web browser</strong> (Chrome, Firefox, Safari, etc.)</li>
+        <li><strong>Visit this website:</strong> <a href="https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html" target="_blank">https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html</a></li>
+        <li><strong>Find the right installer for your computer:</strong></li>
+    </ol>
+    
+    <h4>For Windows Users:</h4>
+    <ul>
+        <li>Look for <strong>"Windows x64 Installer"</strong></li>
+        <li>Click the download link</li>
+        <li>The file will be named something like <code>jdk-17_windows-x64_bin.exe</code></li>
+    </ul>
+    
+    <h4>For Linux Users:</h4>
+    <ul>
+        <li>Choose one of these based on your Linux version:
+            <ul>
+                <li><strong>"Linux x64 Debian Package"</strong> (for Ubuntu, Debian, Mint) - ends with <code>.deb</code></li>
+                <li><strong>"Linux x64 RPM Package"</strong> (for Fedora, Red Hat, CentOS) - ends with <code>.rpm</code></li>
+                <li><strong>"Linux Arm 64 RPM Package"</strong> (for ARM-based Linux computers)</li>
+            </ul>
+        </li>
+    </ul>
+    
+    <h4>For Mac Users:</h4>
+    <ul>
+        <li>Look for:
+            <ul>
+                <li><strong>"macOS Arm 64 DMG Installer"</strong> (for M1, M2, M3 Macs) - newer Macs</li>
+                <li><strong>"macOS x64 DMG Installer"</strong> (for Intel Macs) - older Macs</li>
+            </ul>
+        </li>
+        <li>Not sure which Mac you have? Click the Apple menu (🍎) → "About This Mac" → Look at "Chip" or "Processor"</li>
+    </ul>
+    
+    <p><strong>Note:</strong> You might need to create a free Oracle account to download. It's safe and free!</p>
+    
+    <h3>Step 2: Install Java JDK</h3>
+    <p>Now that you've downloaded the file, let's install it!</p>
+    
+    <h4>Windows Installation:</h4>
+    <ol>
+        <li>Find the downloaded <code>.exe</code> file (usually in your "Downloads" folder)</li>
+        <li><strong>Double-click</strong> the file</li>
+        <li>Click "Yes" if Windows asks for permission</li>
+        <li>Click "Next" through the installation wizard</li>
+        <li>Choose the default installation location (or remember where you install it!)</li>
+        <li>Click "Next" and then "Close" when finished</li>
+    </ol>
+    
+    <h4>Linux Installation:</h4>
+    <p><strong>For Debian/Ubuntu (.deb file):</strong></p>
+    <ol>
+        <li>Open Terminal (press Ctrl+Alt+T)</li>
+        <li>Navigate to your Downloads folder:
+            <pre><code class="language-bash">cd ~/Downloads</code></pre>
+        </li>
+        <li>Run this command (replace the filename with your actual file):
+            <pre><code class="language-bash">sudo dpkg -i jdk-17_linux-x64_bin.deb</code></pre>
+        </li>
+        <li>Enter your password when asked</li>
+    </ol>
+    
+    <p><strong>For Fedora/RedHat (.rpm file):</strong></p>
+    <ol>
+        <li>Open Terminal</li>
+        <li>Navigate to your Downloads folder:
+            <pre><code class="language-bash">cd ~/Downloads</code></pre>
+        </li>
+        <li>Run this command (replace the filename with your actual file):
+            <pre><code class="language-bash">sudo dnf install jdk-17_linux-x64_bin.rpm</code></pre>
+        </li>
+        <li>Enter your password when asked</li>
+    </ol>
+    
+    <h4>Mac Installation:</h4>
+    <ol>
+        <li>Find the downloaded <code>.dmg</code> file</li>
+        <li><strong>Double-click</strong> the file</li>
+        <li>A window will open with an installer icon</li>
+        <li><strong>Double-click</strong> the installer icon</li>
+        <li>Click "Continue" and follow the instructions</li>
+        <li>Enter your password when asked</li>
+        <li>Click "Close" when finished</li>
+    </ol>
+    
+    <h3>Step 3: Verify Java Installation</h3>
+    <p>Let's check that Java installed correctly!</p>
+    <ol>
+        <li><strong>Open your terminal/command prompt:</strong>
+            <ul>
+                <li><strong>Windows:</strong> Press Windows Key + R, type <code>cmd</code>, press Enter</li>
+                <li><strong>Mac:</strong> Press Cmd + Space, type "Terminal", press Enter</li>
+                <li><strong>Linux:</strong> Press Ctrl + Alt + T</li>
+            </ul>
+        </li>
+        <li><strong>Type this command</strong> and press Enter:
+            <pre><code class="language-bash">java -version</code></pre>
+        </li>
+        <li><strong>You should see something like:</strong>
+            <pre><code class="language-bash">java version "17.0.x"
+Java(TM) SE Runtime Environment (build 17.0.x)
+Java HotSpot(TM) 64-Bit Server VM (build 17.0.x)</code></pre>
+        </li>
+    </ol>
+    <p><strong>If you see this, congratulations! ✅ Java is installed!</strong></p>
+    <p><strong>If you get an error,</strong> it means Java isn't properly installed. Try:</p>
+    <ul>
+        <li>Restarting your computer</li>
+        <li>Running the installer again</li>
+        <li>Asking a teacher or parent for help</li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Part 2: Installing Visual Studio Code</h2>
+    <p>Visual Studio Code (VS Code) is a <strong>code editor</strong> - think of it as a super-powered text editor specifically designed for writing code. It's free, fast, and very popular among programmers!</p>
+    
+    <h3>Step 1: Download Visual Studio Code</h3>
+    <ol>
+        <li><strong>Visit:</strong> <a href="https://code.visualstudio.com/" target="_blank">https://code.visualstudio.com/</a></li>
+        <li>You'll see a big download button that automatically detects your operating system:
+            <ul>
+                <li><strong>"Download for Windows"</strong></li>
+                <li><strong>"Download for Mac"</strong></li>
+                <li><strong>"Download for Linux"</strong></li>
+            </ul>
+        </li>
+        <li><strong>Click the button</strong> to download</li>
+    </ol>
+    
+    <h3>Step 2: Install Visual Studio Code</h3>
+    
+    <h4>Windows:</h4>
+    <ol>
+        <li>Find the downloaded file (usually <code>VSCodeSetup-x64-x.xx.x.exe</code>)</li>
+        <li><strong>Double-click</strong> the file</li>
+        <li>Accept the license agreement</li>
+        <li><strong>Important:</strong> Check these boxes:
+            <ul>
+                <li>✅ "Add to PATH"</li>
+                <li>✅ "Create a desktop icon" (optional, but helpful!)</li>
+                <li>✅ "Add 'Open with Code' action to Windows Explorer file context menu"</li>
+            </ul>
+        </li>
+        <li>Click "Next" and then "Install"</li>
+        <li>Click "Finish"</li>
+    </ol>
+    
+    <h4>Linux:</h4>
+    <p><strong>For Debian/Ubuntu (.deb file):</strong></p>
+    <pre><code class="language-bash">cd ~/Downloads
+sudo dpkg -i code_*.deb</code></pre>
+    
+    <p><strong>For Fedora/RedHat (.rpm file):</strong></p>
+    <pre><code class="language-bash">cd ~/Downloads
+sudo dnf install code-*.rpm</code></pre>
+    
+    <h4>Mac:</h4>
+    <ol>
+        <li>Open the downloaded <code>.dmg</code> file</li>
+        <li>Drag the Visual Studio Code icon to your Applications folder</li>
+        <li>Open Applications and double-click Visual Studio Code</li>
+    </ol>
+    
+    <h3>Step 3: Install Java Extension Pack</h3>
+    <p>VS Code needs some special helper tools (called "extensions") to work well with Java.</p>
+    <ol>
+        <li><strong>Open Visual Studio Code</strong></li>
+        <li><strong>Method 1 - Use the website:</strong>
+            <ul>
+                <li>Visit: <a href="https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack" target="_blank">https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-pack</a></li>
+                <li>Click the green "Install" button</li>
+                <li>Your browser will ask to open VS Code - click "Yes" or "Open"</li>
+                <li>VS Code will open and start installing the extension</li>
+            </ul>
+        </li>
+        <li><strong>Method 2 - Use VS Code directly:</strong>
+            <ul>
+                <li>In VS Code, click the Extensions icon on the left side (it looks like 4 squares)</li>
+                <li>In the search box, type: <code>Java Extension Pack</code></li>
+                <li>Find the one by Microsoft</li>
+                <li>Click the blue "Install" button</li>
+            </ul>
+        </li>
+    </ol>
+    
+    <p><strong>What does this extension pack include?</strong></p>
+    <ul>
+        <li>Language Support for Java - helps VS Code understand Java code</li>
+        <li>Debugger for Java - helps you find and fix problems in your code</li>
+        <li>Test Runner for Java - helps you test your code</li>
+        <li>Project Manager for Java - helps organize your projects</li>
+        <li>Visual Studio IntelliCode - gives you smart suggestions while typing</li>
+    </ul>
+    <p>Wait for all extensions to install. You'll see a progress indicator at the bottom of VS Code.</p>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Part 3: Creating Your First Java Program</h2>
+    <p>Now comes the exciting part - writing your very first Java program! We're going to create a program that displays "Hello World!" in the terminal. This is a tradition in programming - every programmer's first program usually displays "Hello World!"</p>
+    
+    <h3>Step 1: Create Your Java Project Folder</h3>
+    <ol>
+        <li><strong>Create a folder for your Java projects:</strong>
+            <ul>
+                <li><strong>Windows:</strong> Open File Explorer, go to your Documents folder, create a new folder called <code>JavaCourse</code></li>
+                <li><strong>Mac:</strong> Open Finder, go to your Documents folder, create a new folder called <code>JavaCourse</code></li>
+                <li><strong>Linux:</strong> Open your file manager, go to your home folder, create a new folder called <code>JavaCourse</code></li>
+            </ul>
+        </li>
+        <li><strong>Open this folder in VS Code:</strong>
+            <ul>
+                <li>Open Visual Studio Code</li>
+                <li>Click "File" → "Open Folder"</li>
+                <li>Navigate to your <code>JavaCourse</code> folder</li>
+                <li>Click "Select Folder" (or "Open")</li>
+            </ul>
+        </li>
+        <li><strong>Trust the folder:</strong>
+            <ul>
+                <li>VS Code will ask "Do you trust the authors of the files in this folder?"</li>
+                <li>Click "Yes, I trust the authors"</li>
+                <li>(This is safe because you created the folder yourself!)</li>
+            </ul>
+        </li>
+    </ol>
+    
+    <h3>Step 2: Create the Package Structure</h3>
+    <p>In Java, we organize our code into <strong>packages</strong>. Think of packages like folders on your computer - they help keep things organized!</p>
+    <ol>
+        <li><strong>In VS Code,</strong> you'll see the folder structure on the left side (called the "Explorer")</li>
+        <li><strong>Create the package folders:</strong>
+            <ul>
+                <li>In the Explorer, hover over <code>JAVACOURSE</code> and click the "New Folder" icon</li>
+                <li>Create a folder called: <code>al</code></li>
+                <li>Inside <code>al</code>, create a folder called: <code>istep</code></li>
+                <li>Inside <code>istep</code>, create a folder called: <code>javacourse</code></li>
+                <li>Inside <code>javacourse</code>, create a folder called: <code>lesson1</code></li>
+            </ul>
+        </li>
+    </ol>
+    
+    <p>Your folder structure should look like this:</p>
+    <pre><code class="language-bash">JavaCourse/
+    └── al/
+        └── istep/
+            └── javacourse/
+                └── lesson1/</code></pre>
+    
+    <h3>Step 3: Create Your HelloWorld.java File</h3>
+    <ol>
+        <li><strong>Right-click</strong> on the <code>lesson1</code> folder</li>
+        <li>Select <strong>"New File"</strong></li>
+        <li>Name it: <code>HelloWorld.java</code></li>
+        <li>Make sure you type it exactly like that - Java is case-sensitive! (The capital H and W are important!)</li>
+    </ol>
+    
+    <h3>Step 4: Write Your First Java Program</h3>
+    <p>Now, let's write the code! Click on <code>HelloWorld.java</code> to open it, and type this code <strong>exactly</strong> as shown:</p>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson1;
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+    }
+}</code></pre>
+    
+    <p><strong>Let's understand what each part means:</strong></p>
+    
+    <h4>Line 1: <code>package al.istep.javacourse.lesson1;</code></h4>
+    <ul>
+        <li>This line tells Java which package (folder) this file belongs to</li>
+        <li>It matches the folder structure we created: al/istep/javacourse/lesson1</li>
+        <li>Think of it like writing your address on an envelope!</li>
+    </ul>
+    
+    <h4>Line 3: <code>public class HelloWorld {</code></h4>
+    <ul>
+        <li>Every Java program is built from "classes" (we'll learn more about these later)</li>
+        <li><code>public</code> means other programs can use this class</li>
+        <li><code>class</code> is a keyword that says "I'm creating a class"</li>
+        <li><code>HelloWorld</code> is the name of our class - it <strong>must match</strong> the filename!</li>
+        <li>The <code>{</code> symbol opens the class (like opening a box)</li>
+    </ul>
+    
+    <h4>Line 4: <code>public static void main(String[] args) {</code></h4>
+    <ul>
+        <li>This is the <strong>main method</strong> - it's where your program starts running</li>
+        <li>Every Java program needs a main method</li>
+        <li>Think of it as the "play button" for your program</li>
+        <li>You don't need to understand every word yet - just know that this line is required!</li>
+    </ul>
+    
+    <h4>Line 5: <code>System.out.println("Hello World!");</code></h4>
+    <ul>
+        <li>This is the actual command that does something!</li>
+        <li><code>System.out.println</code> means "print a line to the screen"</li>
+        <li>The text between the quotes <code>"Hello World!"</code> is what gets printed</li>
+        <li>The semicolon <code>;</code> at the end is like a period at the end of a sentence</li>
+    </ul>
+    
+    <h4>Lines 6-7: <code>}</code> and <code>}</code></h4>
+    <ul>
+        <li>These closing brackets <code>}</code> close what we opened with <code>{</code></li>
+        <li>The first <code>}</code> closes the main method</li>
+        <li>The second <code>}</code> closes the HelloWorld class</li>
+        <li>Every <code>{</code> needs a matching <code>}</code>!</li>
+    </ul>
+    
+    <h3>Step 5: Run Your Program!</h3>
+    <p>This is the moment of truth - let's run your program!</p>
+    
+    <p><strong>Method 1 - Using the Run Button:</strong></p>
+    <ol>
+        <li>You should see a small "Run" button (▶️) above your code, near the line that says <code>public static void main</code></li>
+        <li>Click the "Run" button</li>
+        <li>A terminal will open at the bottom of VS Code</li>
+        <li>You should see: <code>Hello World!</code></li>
+    </ol>
+    
+    <p><strong>Method 2 - Using the Terminal:</strong></p>
+    <ol>
+        <li>In VS Code, click "Terminal" → "New Terminal"</li>
+        <li>A terminal will open at the bottom</li>
+        <li>Type these commands:
+            <pre><code class="language-bash">javac al/istep/javacourse/lesson1/HelloWorld.java
+java al.istep.javacourse.lesson1.HelloWorld</code></pre>
+        </li>
+        <li>Press Enter after each command</li>
+        <li>You should see: <code>Hello World!</code></li>
+    </ol>
+    
+    <p><strong>🎉 Congratulations! You just wrote and ran your first Java program!</strong></p>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Part 4: Let's Experiment!</h2>
+    <p>Now that you have a working program, let's try some modifications to learn more!</p>
+    
+    <h3>Experiment 1: Change the Message</h3>
+    <p>Change line 5 to print different messages:</p>
+    <pre><code class="language-java">System.out.println("My name is Alex!");</code></pre>
+    <p>Or:</p>
+    <pre><code class="language-java">System.out.println("I love programming!");</code></pre>
+    <p><strong>Run your program again</strong> to see the new message!</p>
+    
+    <h3>Experiment 2: Print Multiple Lines</h3>
+    <p>You can use multiple <code>println</code> statements:</p>
+    <pre><code class="language-java">package al.istep.javacourse.lesson1;
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello World!");
+        System.out.println("This is my first Java program.");
+        System.out.println("I am learning to code!");
+        System.out.println("This is so cool!");
+    }
+}</code></pre>
+    <p>Each <code>println</code> prints on a new line!</p>
+    
+    <h3>Experiment 3: Print Without New Lines</h3>
+    <p>Use <code>print</code> instead of <code>println</code> to print without starting a new line:</p>
+    <pre><code class="language-java">package al.istep.javacourse.lesson1;
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.print("Hello ");
+        System.out.print("World");
+        System.out.println("!");
+        System.out.println("Everything above printed on one line!");
+    }
+}</code></pre>
+    
+    <p><strong>Output:</strong></p>
+    <pre><code class="language-bash">Hello World!
+Everything above printed on one line!</code></pre>
+    
+    <h3>Experiment 4: Print ASCII Art</h3>
+    <p>You can even create pictures with text:</p>
+    <pre><code class="language-java">package al.istep.javacourse.lesson1;
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("    *    ");
+        System.out.println("   ***   ");
+        System.out.println("  *****  ");
+        System.out.println(" ******* ");
+        System.out.println("*********");
+        System.out.println("    |    ");
+        System.out.println("    |    ");
+        System.out.println("");
+        System.out.println("Look! A Christmas tree!");
+    }
+}</code></pre>
+    
+    <h3>Experiment 5: Using Escape Sequences</h3>
+    <p>Special characters can be added using backslash <code>\</code>:</p>
+    <pre><code class="language-java">package al.istep.javacourse.lesson1;
+
+public class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello\tWorld!");  // \t adds a tab
+        System.out.println("Hello\nWorld!");  // \n adds a new line
+        System.out.println("He said, \"Hello!\"");  // \" adds a quote
+        System.out.println("This is a backslash: \\");  // \\ adds a backslash
+    }
+}</code></pre>
+    
+    <p><strong>Output:</strong></p>
+    <pre><code class="language-bash">Hello   World!
+Hello
+World!
+He said, "Hello!"
+This is a backslash: \</code></pre>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Common Mistakes and How to Fix Them</h2>
+    
+    <h3>Error: "Cannot find symbol"</h3>
+    <p><strong>Problem:</strong> You misspelled something or used the wrong capitalization<br>
+    <strong>Solution:</strong> Check your spelling and make sure capitals match exactly</p>
+    
+    <h3>Error: "Class name doesn't match filename"</h3>
+    <p><strong>Problem:</strong> The class name in your code doesn't match your filename<br>
+    <strong>Solution:</strong> Make sure <code>class HelloWorld</code> matches <code>HelloWorld.java</code></p>
+    
+    <h3>Error: "';' expected"</h3>
+    <p><strong>Problem:</strong> You forgot a semicolon at the end of a line<br>
+    <strong>Solution:</strong> Add a <code>;</code> at the end of the statement</p>
+    
+    <h3>Error: "'}' expected"</h3>
+    <p><strong>Problem:</strong> You're missing a closing bracket<br>
+    <strong>Solution:</strong> Count your curly brackets - every <code>{</code> needs a matching <code>}</code></p>
+    
+    <h3>Program doesn't run</h3>
+    <p><strong>Problem:</strong> Various issues<br>
+    <strong>Solutions:</strong></p>
+    <ul>
+        <li>Make sure you saved the file (File → Save or Ctrl+S / Cmd+S)</li>
+        <li>Check that there are no red squiggly lines under your code</li>
+        <li>Try closing and reopening VS Code</li>
+        <li>Make sure Java is installed correctly</li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Summary: What You Learned</h2>
+    <p>In this lesson, you:</p>
+    <ul>
+        <li>✅ Learned what Java is and why it's awesome</li>
+        <li>✅ Installed Java JDK 17 on your computer</li>
+        <li>✅ Installed Visual Studio Code and the Java Extension Pack</li>
+        <li>✅ Created your first Java project with proper package structure</li>
+        <li>✅ Wrote your first Java program: HelloWorld</li>
+        <li>✅ Learned about classes, methods, and printing to the console</li>
+        <li>✅ Experimented with different ways to print text</li>
+        <li>✅ Learned about common errors and how to fix them</li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Practice Exercises</h2>
+    <p>Try these on your own to practice what you learned:</p>
+    
+    <h3>Exercise 1: About Me</h3>
+    <p>Create a new file called <code>AboutMe.java</code> in the <code>lesson1</code> folder that prints:</p>
+    <ul>
+        <li>Your name</li>
+        <li>Your age</li>
+        <li>Your favorite hobby</li>
+        <li>Your favorite food</li>
+    </ul>
+    
+    <h3>Exercise 2: A Story</h3>
+    <p>Create a program called <code>Story.java</code> that prints a short story (at least 5 lines).</p>
+    
+    <h3>Exercise 3: Calculator Art</h3>
+    <p>Create a program called <code>Calculator.java</code> that uses ASCII art to draw a calculator.</p>
+    
+    <h3>Exercise 4: Welcome Message</h3>
+    <p>Create a program called <code>Welcome.java</code> that prints a welcome message to new students joining your class.</p>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Helpful Tips</h2>
+    <ul>
+        <li><strong>Save Often:</strong> Press Ctrl+S (Windows/Linux) or Cmd+S (Mac) frequently to save your work</li>
+        <li><strong>Use Auto-Complete:</strong> As you type, VS Code will suggest completions - press Tab to accept them</li>
+        <li><strong>Read Error Messages:</strong> If something goes wrong, read the error message carefully - it usually tells you what's wrong and where</li>
+        <li><strong>Experiment:</strong> Don't be afraid to try things! You can't break your computer by writing Java code</li>
+        <li><strong>Ask for Help:</strong> If you get stuck, ask a teacher, friend, or search online (many programmers started just like you!)</li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Next Lesson Preview</h2>
+    <p>In Lesson 2, you'll learn about:</p>
+    <ul>
+        <li>Variables (storing information in your programs)</li>
+        <li>Different types of data (numbers, text, true/false)</li>
+        <li>Math operations in Java</li>
+        <li>How to make your programs more interactive</li>
+    </ul>
+    <p>Get ready to make your programs even more powerful! 🚀</p>
+</div>
+
+<div class="section">
+    <p>
+        <a href="?page=lesson2" data-page="lesson2" style="padding: 10px 20px; background-color: var(--istep-dunkelblau); color: white; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">
+            Next: Lesson 2 - Variables, Data Types & Expressions →
+        </a>
+    </p>
+</div>
