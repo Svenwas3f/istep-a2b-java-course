@@ -22,7 +22,7 @@ index.html              # Main entry point
 ├── js/
 │   └── script.js      # Navigation and page loading logic
 └── pages/             # Content pages
-    ├── home.html      # Landing page
+    └── home.html      # Landing page
 ```
 
 ## How to Use
