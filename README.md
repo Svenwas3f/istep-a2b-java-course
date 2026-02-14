@@ -23,44 +23,7 @@ index.html              # Main entry point
 │   └── script.js      # Navigation and page loading logic
 └── pages/             # Content pages
     ├── home.html      # Landing page
-    ├── about.html     # About page
-    ├── contact.html   # Contact page
-    ├── java/          # Java tutorial subpages
-    │   ├── introduction.html
-    │   ├── basics.html
-    │   ├── oop.html
-    │   ├── collections.html
-    │   └── advanced.html
-    ├── spring/        # Spring Framework subpages
-    │   ├── introduction.html
-    │   ├── boot.html
-    │   ├── mvc.html
-    │   └── data.html
-    └── practices/     # Best Practices subpages
-        ├── clean-code.html
-        ├── testing.html
-        └── design-patterns.html
 ```
-
-## Tutorial Topics
-
-### Java Tutorial
-1. **Einführung** - Introduction to Java and setup
-2. **Grundlagen** - Basic syntax, variables, operators, control structures
-3. **Objektorientierung** - OOP concepts, classes, inheritance, interfaces
-4. **Collections** - Java Collections Framework, Lists, Sets, Maps, Streams
-5. **Fortgeschrittene Themen** - Exceptions, Generics, Lambdas, File I/O, Multithreading
-
-### Spring Framework
-1. **Einführung** - Spring Framework basics and Dependency Injection
-2. **Spring Boot** - Rapid application development with Spring Boot
-3. **Spring MVC** - Web applications (coming soon)
-4. **Spring Data** - Database access (coming soon)
-
-### Best Practices
-1. **Clean Code** - Code quality principles and best practices
-2. **Testing** - Unit testing and TDD (coming soon)
-3. **Design Patterns** - Common design patterns (coming soon)
 
 ## How to Use
 
