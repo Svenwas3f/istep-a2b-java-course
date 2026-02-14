@@ -57,12 +57,17 @@
 ## Lesson 3
 **Title**: Classes and Objects
 **Topics to cover**: 
--
+- Classes vs. Objects
+- Introduction into the String Class
 
 ## Lesson 4
 **Title**: Classes and Objects
 **Topics to cover**: 
--
+- Packages
+    - Custom Packages
+    - Standard Java Packages 
+- Introduction into the random class
+- Introduction into the java documentation 
 
 ## Lesson 5
 **Title**: Classes and Objects

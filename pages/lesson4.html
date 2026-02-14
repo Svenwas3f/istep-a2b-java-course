@@ -1,0 +1,763 @@
+<div class="content-header">
+    <h1>Lesson 4: Packages, Standard Libraries, and the Random Class</h1>
+</div>
+
+<div class="section">
+    <h2>Welcome to Lesson 4! 📦</h2>
+    <p>As your programs get bigger and more complex, you need ways to organize them. In this lesson, you'll learn about Java Packages, which help you organize your code. You'll also learn how to use Java's built-in libraries and create random numbers with the Random class!</p>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Part 1: Understanding Packages</h2>
+    
+    <h3>What Are Packages?</h3>
+    <p>A <strong>package</strong> is a way to organize Java classes into groups. Think of packages like folders on your computer:</p>
+    
+    <ul>
+        <li><strong>Folder:</strong> My Documents → Photos → 2024</li>
+        <li><strong>Package:</strong> al → istep → javacourse → lesson1</li>
+    </ul>
+    
+    <p>Packages serve several important purposes:</p>
+    <ol>
+        <li><strong>Organization:</strong> Keep related classes together</li>
+        <li><strong>Avoiding name conflicts:</strong> You can have a class called "Student" in package lesson3 and another "Student" in package lesson4</li>
+        <li><strong>Access control:</strong> Control who can use your classes</li>
+        <li><strong>Professional structure:</strong> Real companies organize their code with packages</li>
+    </ol>
+    
+    <h3>Package Naming Convention</h3>
+    <p>Java packages typically use reverse domain names. For example:</p>
+    <ul>
+        <li><code>com.apple.app</code> - Apple company</li>
+        <li><code>org.google.android</code> - Google company</li>
+        <li><code>al.istep.javacourse</code> - Our course</li>
+    </ul>
+    
+    <p><strong>Rules for package names:</strong></p>
+    <ul>
+        <li>All lowercase letters</li>
+        <li>Separated by dots</li>
+        <li>Usually start with a reversed domain name</li>
+        <li>Followed by the application name and component</li>
+    </ul>
+    
+    <h3>How Packages Match Folders</h3>
+    
+    <p>The package name MUST match the folder structure:</p>
+    
+    <table style="width: 100%; border-collapse: collapse;">
+        <tr style="background-color: var(--istep-dunkelblau-75); color: white;">
+            <th style="padding: 10px; border: 1px solid #ddd;">Package Declaration</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">Folder Structure</th>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><code>package al.istep.javacourse.lesson1;</code></td>
+            <td style="padding: 10px; border: 1px solid #ddd;"><code>al/istep/javacourse/lesson1/</code></td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><code>package al.istep.javacourse.lesson3;</code></td>
+            <td style="padding: 10px; border: 1px solid #ddd;"><code>al/istep/javacourse/lesson3/</code></td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><code>package com.mycompany.games;</code></td>
+            <td style="padding: 10px; border: 1px solid #ddd;"><code>com/mycompany/games/</code></td>
+        </tr>
+    </table>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Part 2: Creating Custom Packages</h2>
+    
+    <h3>Step 1: Create a New Package</h3>
+    
+    <p>Let's create a new package for game utilities. Follow these steps:</p>
+    
+    <ol>
+        <li>In your project, create this folder structure:
+            <pre><code>al/istep/javacourse/games/</code></pre>
+        </li>
+        <li>Make sure the folder path exactly matches the package name</li>
+    </ol>
+    
+    <h3>Step 2: Create Classes in Your Package</h3>
+    
+    <p>Create a file called <code>GameCharacter.java</code> in the <code>games</code> folder:</p>
+    
+    <pre><code class="language-java">package al.istep.javacourse.games;
+
+public class GameCharacter {
+    public String name;
+    public int level;
+    public int health;
+    public int maxHealth;
+    
+    public GameCharacter(String name, int startingHealth) {
+        this.name = name;
+        this.level = 1;
+        this.health = startingHealth;
+        this.maxHealth = startingHealth;
+    }
+    
+    public void takeDamage(int damage) {
+        health -= damage;
+        if (health < 0) {
+            health = 0;
+        }
+        System.out.println(name + " takes " + damage + " damage! Health: " + health);
+    }
+    
+    public void heal(int amount) {
+        health += amount;
+        if (health > maxHealth) {
+            health = maxHealth;
+        }
+        System.out.println(name + " heals " + amount + " HP! Health: " + health);
+    }
+    
+    public void levelUp() {
+        level++;
+        maxHealth += 10;
+        health = maxHealth;
+        System.out.println(name + " reached level " + level + "!");
+    }
+    
+    public void displayStats() {
+        System.out.println("=== " + name + " ===");
+        System.out.println("Level: " + level);
+        System.out.println("Health: " + health + "/" + maxHealth);
+    }
+}</code></pre>
+    
+    <h3>Step 3: Use Your Custom Package</h3>
+    
+    <p>Create a new file called <code>GameDemo.java</code> in the <code>lesson4</code> folder:</p>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson4;
+
+// Import from your custom package
+import al.istep.javacourse.games.GameCharacter;
+
+public class GameDemo {
+    public static void main(String[] args) {
+        // Create game characters
+        GameCharacter hero = new GameCharacter("Warrior", 100);
+        GameCharacter mage = new GameCharacter("Mage", 60);
+        
+        System.out.println("=== GAME START ===\n");
+        
+        hero.displayStats();
+        System.out.println();
+        mage.displayStats();
+        
+        System.out.println("\n=== BATTLE ===\n");
+        
+        hero.takeDamage(15);
+        mage.takeDamage(20);
+        
+        System.out.println();
+        
+        hero.heal(10);
+        mage.heal(5);
+        
+        System.out.println("\n=== LEVEL UP ===\n");
+        
+        hero.levelUp();
+        System.out.println();
+        hero.displayStats();
+    }
+}</code></pre>
+    
+    <p><strong>Output:</strong></p>
+    <pre><code class="language-bash">=== GAME START ===
+
+=== Warrior ===
+Level: 1
+Health: 100/100
+
+=== Mage ===
+Level: 1
+Health: 60/60
+
+=== BATTLE ===
+
+Warrior takes 15 damage! Health: 85
+Mage takes 20 damage! Health: 40
+
+Warrior heals 10 HP! Health: 95
+Mage heals 5 HP! Health: 45
+
+=== LEVEL UP ===
+
+Warrior reached level 2!
+
+=== Warrior ===
+Level: 2
+Health: 110/110</code></pre>
+    
+    <p><strong>Understanding the import statement:</strong></p>
+    <pre><code class="language-java">import al.istep.javacourse.games.GameCharacter;</code></pre>
+    
+    <p>This line tells Java: "I want to use the GameCharacter class from the al.istep.javacourse.games package." Without this import, Java won't know where to find GameCharacter.</p>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Part 3: Java's Standard Packages</h2>
+    
+    <p>Java comes with many built-in packages that contain useful classes. Let's explore some of them!</p>
+    
+    <h3>Important Java Packages</h3>
+    
+    <table style="width: 100%; border-collapse: collapse;">
+        <tr style="background-color: var(--istep-dunkelblau-75); color: white;">
+            <th style="padding: 10px; border: 1px solid #ddd;">Package</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">Purpose</th>
+            <th style="padding: 10px; border: 1px solid #ddd;">Common Classes</th>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><code>java.lang</code></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Core Java classes (auto-imported)</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">String, Math, System</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><code>java.util</code></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Utility classes</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Random, ArrayList, Scanner</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><code>java.io</code></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Input/Output operations</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">File, PrintWriter</td>
+        </tr>
+        <tr>
+            <td style="padding: 10px; border: 1px solid #ddd;"><code>java.awt</code></td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Graphics and GUI</td>
+            <td style="padding: 10px; border: 1px solid #ddd;">Color, Font, Button</td>
+        </tr>
+    </table>
+    
+    <p><strong>Note:</strong> The <code>java.lang</code> package is automatically imported, so you don't need an import statement for classes like String, Math, and System!</p>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Part 4: Introduction to the Random Class</h2>
+    
+    <h3>Why Do We Need Random Numbers?</h3>
+    <ul>
+        <li><strong>Games:</strong> Dice rolls, monster attacks, treasure drops</li>
+        <li><strong>Simulations:</strong> Random events in modeling</li>
+        <li><strong>Testing:</strong> Testing programs with random data</li>
+        <li><strong>Shuffling:</strong> Shuffling cards or playlists</li>
+    </ul>
+    
+    <h3>Creating a Random Number Generator</h3>
+    
+    <p>The Random class is in the <code>java.util</code> package, so we need to import it:</p>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson4;
+
+import java.util.Random;
+
+public class RandomExample1 {
+    public static void main(String[] args) {
+        // Create a Random object
+        Random random = new Random();
+        
+        // Generate random integers
+        int randomNumber1 = random.nextInt(10);  // 0 to 9
+        int randomNumber2 = random.nextInt(10);  // 0 to 9
+        
+        System.out.println("Random number 1: " + randomNumber1);
+        System.out.println("Random number 2: " + randomNumber2);
+    }
+}</code></pre>
+    
+    <p><strong>Output (varies each time):</strong></p>
+    <pre><code class="language-bash">Random number 1: 7
+Random number 2: 3</code></pre>
+    
+    <h3>Common Random Class Methods</h3>
+    
+    <h4>1. nextInt(int bound) - Random integer</h4>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson4;
+
+import java.util.Random;
+
+public class RandomExample2 {
+    public static void main(String[] args) {
+        Random random = new Random();
+        
+        // Roll a dice (1 to 6)
+        int dice = random.nextInt(6) + 1;
+        System.out.println("Dice roll: " + dice);
+        
+        // Random number from 1 to 100
+        int number = random.nextInt(100) + 1;
+        System.out.println("Random number (1-100): " + number);
+        
+        // Random number from 0 to 999
+        int code = random.nextInt(1000);
+        System.out.println("Random code (0-999): " + code);
+    }
+}</code></pre>
+    
+    <p><strong>Important:</strong> <code>nextInt(n)</code> returns a number from 0 to n-1, so to get 1-6, we do <code>nextInt(6) + 1</code></p>
+    
+    <h4>2. nextDouble() - Random decimal number</h4>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson4;
+
+import java.util.Random;
+
+public class RandomExample3 {
+    public static void main(String[] args) {
+        Random random = new Random();
+        
+        // Random decimal between 0.0 and 1.0
+        double randomDouble = random.nextDouble();
+        System.out.println("Random decimal: " + randomDouble);
+        
+        // Random price between 0 and 100
+        double price = random.nextDouble() * 100;
+        System.out.println("Random price: $" + price);
+    }
+}</code></pre>
+    
+    <h4>3. nextBoolean() - Random true or false</h4>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson4;
+
+import java.util.Random;
+
+public class RandomExample4 {
+    public static void main(String[] args) {
+        Random random = new Random();
+        
+        // Coin flip
+        boolean heads = random.nextBoolean();
+        
+        if (heads) {
+            System.out.println("Heads!");
+        } else {
+            System.out.println("Tails!");
+        }
+    }
+}</code></pre>
+    
+    <h3>Example: Simple Number Guessing Game</h3>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson4;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class GuessingGame {
+    public static void main(String[] args) {
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+        
+        // Generate a random number between 1 and 100
+        int secretNumber = random.nextInt(100) + 1;
+        int guess = 0;
+        int tries = 0;
+        
+        System.out.println("=== NUMBER GUESSING GAME ===");
+        System.out.println("I'm thinking of a number between 1 and 100");
+        System.out.println("Can you guess it?\n");
+        
+        while (guess != secretNumber) {
+            System.out.print("Enter your guess: ");
+            guess = scanner.nextInt();
+            tries++;
+            
+            if (guess < secretNumber) {
+                System.out.println("Too low! Try higher.");
+            } else if (guess > secretNumber) {
+                System.out.println("Too high! Try lower.");
+            } else {
+                System.out.println("Correct! You guessed it in " + tries + " tries!");
+            }
+            System.out.println();
+        }
+    }
+}</code></pre>
+    
+    <h3>Example: Dice Roller</h3>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson4;
+
+import java.util.Random;
+
+public class DiceRoller {
+    public static void main(String[] args) {
+        Random random = new Random();
+        
+        System.out.println("=== DICE ROLLER ===\n");
+        
+        // Roll 6-sided dice 5 times
+        System.out.println("Rolling a 6-sided dice 5 times:");
+        int total = 0;
+        for (int i = 1; i <= 5; i++) {
+            int roll = random.nextInt(6) + 1;
+            System.out.println("Roll " + i + ": " + roll);
+            total += roll;
+        }
+        System.out.println("Total: " + total + "\n");
+        
+        // Roll 20-sided dice (D&D)
+        System.out.println("Rolling a 20-sided dice:");
+        int d20 = random.nextInt(20) + 1;
+        System.out.println("D20 Roll: " + d20);
+        
+        if (d20 == 20) {
+            System.out.println("Critical Hit!");
+        } else if (d20 == 1) {
+            System.out.println("Critical Fail!");
+        }
+    }
+}</code></pre>
+    
+    <p><strong>Output (varies each time):</strong></p>
+    <pre><code class="language-bash">=== DICE ROLLER ===
+
+Rolling a 6-sided dice 5 times:
+Roll 1: 4
+Roll 2: 2
+Roll 3: 6
+Roll 4: 1
+Roll 5: 3
+Total: 16
+
+Rolling a 20-sided dice:
+D20 Roll: 7</code></pre>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Part 5: Introduction to Java Documentation</h2>
+    
+    <h3>What is Java Documentation?</h3>
+    <p>Java documentation is a complete reference for all built-in classes and their methods. It's like a massive instruction manual for Java!</p>
+    
+    <p><strong>Official Java Documentation:</strong> https://docs.oracle.com/en/java/javase/17/docs/api/index.html</p>
+    
+    <h3>How to Read Java Documentation</h3>
+    
+    <p>Let's use the Random class as an example. Here's what you'll find in the documentation:</p>
+    
+    <pre><code>Class java.util.Random
+    
+Methods:
+- nextInt() - Returns a random int
+- nextInt(int bound) - Returns random int from 0 to bound-1
+- nextDouble() - Returns random double from 0.0 to 1.0
+- nextBoolean() - Returns random boolean
+- nextLong() - Returns random long</code></pre>
+    
+    <h3>Reading Method Documentation</h3>
+    
+    <p>For each method, documentation shows:</p>
+    <ul>
+        <li><strong>Method name:</strong> nextInt(int bound)</li>
+        <li><strong>What it does:</strong> Returns a random integer from 0 to 'bound' minus 1</li>
+        <li><strong>Parameters:</strong> bound (int) - the upper limit</li>
+        <li><strong>Returns:</strong> A random int</li>
+        <li><strong>Example code:</strong> How to use it</li>
+    </ul>
+    
+    <h3>Common Java Documentation References</h3>
+    
+    <p><strong>String Class Methods:</strong></p>
+    <ul>
+        <li>length() - Returns the number of characters</li>
+        <li>charAt(int index) - Returns character at position</li>
+        <li>substring(int start, int end) - Returns part of string</li>
+        <li>indexOf(String str) - Finds position of text</li>
+        <li>equals(String str) - Compares two strings</li>
+        <li>replace(String old, String new) - Replaces text</li>
+    </ul>
+    
+    <p><strong>Math Class Methods:</strong></p>
+    <ul>
+        <li>Math.abs(double a) - Absolute value</li>
+        <li>Math.sqrt(double a) - Square root</li>
+        <li>Math.pow(double a, double b) - Power (a to the b)</li>
+        <li>Math.max(double a, double b) - Maximum of two numbers</li>
+        <li>Math.min(double a, double b) - Minimum of two numbers</li>
+        <li>Math.round(double a) - Rounds to nearest integer</li>
+    </ul>
+    
+    <h3>Example: Using Math Class</h3>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson4;
+
+public class MathExample {
+    public static void main(String[] args) {
+        // Using Math class (from java.lang, auto-imported)
+        
+        double number = -15.7;
+        System.out.println("Original: " + number);
+        System.out.println("Absolute value: " + Math.abs(number));
+        
+        System.out.println("\nSquare root of 16: " + Math.sqrt(16));
+        System.out.println("2 to the power of 3: " + Math.pow(2, 3));
+        
+        System.out.println("\nMax of 10 and 20: " + Math.max(10, 20));
+        System.out.println("Min of 10 and 20: " + Math.min(10, 20));
+        
+        double decimal = 3.7;
+        System.out.println("\nRound " + decimal + ": " + Math.round(decimal));
+    }
+}</code></pre>
+    
+    <p><strong>Output:</strong></p>
+    <pre><code class="language-bash">Original: -15.7
+Absolute value: 15.7
+
+Square root of 16: 4.0
+2 to the power of 3: 8.0
+
+Max of 10 and 20: 20
+Min of 10 and 20: 10
+
+Round 3.7: 4</code></pre>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Part 6: Complete Example - Interactive Game</h2>
+    
+    <p>Let's create a complete program that brings everything together!</p>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson4;
+
+import java.util.Random;
+import java.util.Scanner;
+
+public class SimpleRPG {
+    public static void main(String[] args) {
+        Random random = new Random();
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.println("=== WELCOME TO SIMPLE RPG ===\n");
+        System.out.print("Enter your character name: ");
+        String playerName = scanner.nextLine();
+        
+        // Create player stats
+        int playerHP = 100;
+        int playerAttack = 15;
+        int enemyHP = 50;
+        int enemyAttack = 10;
+        
+        System.out.println("\nA wild monster appears!");
+        System.out.println("Monster HP: " + enemyHP + "\n");
+        
+        // Battle loop
+        int turn = 1;
+        while (playerHP > 0 && enemyHP > 0) {
+            System.out.println("=== Turn " + turn + " ===");
+            System.out.println(playerName + " HP: " + playerHP);
+            System.out.println("Monster HP: " + enemyHP + "\n");
+            
+            // Player attack
+            System.out.print("1. Attack  2. Defend  3. Use Potion: ");
+            int choice = scanner.nextInt();
+            
+            if (choice == 1) {
+                // Random damage (8-15)
+                int damage = random.nextInt(8) + 8;
+                enemyHP -= damage;
+                System.out.println(playerName + " attacked! Dealt " + damage + " damage!\n");
+            } else if (choice == 2) {
+                System.out.println(playerName + " defended! Takes half damage next turn.\n");
+            } else if (choice == 3) {
+                playerHP += 30;
+                if (playerHP > 100) playerHP = 100;
+                System.out.println(playerName + " used a potion! Healed to " + playerHP + " HP\n");
+            }
+            
+            if (enemyHP <= 0) break;
+            
+            // Monster attack
+            int monsterDamage = random.nextInt(6) + 5;
+            playerHP -= monsterDamage;
+            System.out.println("Monster attacks! Dealt " + monsterDamage + " damage!\n");
+            
+            turn++;
+        }
+        
+        // Battle result
+        System.out.println("\n=== BATTLE OVER ===");
+        if (playerHP > 0) {
+            System.out.println("Victory! " + playerName + " wins!");
+        } else {
+            System.out.println("Defeat! " + playerName + " was defeated!");
+        }
+    }
+}</code></pre>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Common Mistakes and How to Fix Them</h2>
+    
+    <h3>Mistake 1: Forgetting to import a class</h3>
+    <p><strong>Wrong:</strong></p>
+    <pre><code class="language-java">Random random = new Random();  // ❌ Error: Random not found</code></pre>
+    
+    <p><strong>Correct:</strong></p>
+    <pre><code class="language-java">import java.util.Random;
+
+Random random = new Random();  // ✅</code></pre>
+    
+    <h3>Mistake 2: Misunderstanding nextInt bounds</h3>
+    <p><strong>Wrong thinking:</strong> nextInt(10) gives 1-10</p>
+    <pre><code class="language-java">int number = random.nextInt(10);  // Actually 0-9!</code></pre>
+    
+    <p><strong>Correct:</strong> nextInt(10) gives 0-9, so for 1-10 use:</p>
+    <pre><code class="language-java">int number = random.nextInt(10) + 1;  // 1-10</code></pre>
+    
+    <h3>Mistake 3: Package path mismatch</h3>
+    <p><strong>Wrong:</strong> File in folder <code>al/istep/javacourse/lesson4/</code> but declares:</p>
+    <pre><code class="language-java">package al.istep.javacourse.lesson3;  // ❌ Wrong package</code></pre>
+    
+    <p><strong>Correct:</strong> Match the folder structure exactly</p>
+    <pre><code class="language-java">package al.istep.javacourse.lesson4;  // ✅ Matches folder</code></pre>
+    
+    <h3>Mistake 4: Forgetting that java.lang is auto-imported</h3>
+    <p>You DON'T need to import String, System, or Math:</p>
+    <pre><code class="language-java">// No import needed!
+String text = "Hello";
+System.out.println(text);
+double root = Math.sqrt(16);</code></pre>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Practice Exercises</h2>
+    
+    <h3>Exercise 1: Rock Paper Scissors Game</h3>
+    <p>Create a game where:</p>
+    <ul>
+        <li>Player chooses rock, paper, or scissors</li>
+        <li>Computer randomly chooses</li>
+        <li>Program determines the winner</li>
+        <li>Use Random class for computer choice</li>
+    </ul>
+    
+    <h3>Exercise 2: Lottery Simulator</h3>
+    <p>Create a program that:</p>
+    <ul>
+        <li>Generates 6 random numbers (1-49)</li>
+        <li>User enters 6 numbers</li>
+        <li>Program counts how many match</li>
+        <li>Displays prize based on matches</li>
+    </ul>
+    
+    <h3>Exercise 3: Package Organization</h3>
+    <p>Create a package structure:</p>
+    <ul>
+        <li><code>al.istep.javacourse.utilities.math</code> with a Calculator class</li>
+        <li><code>al.istep.javacourse.utilities.game</code> with a Weapon class</li>
+        <li>Create a main program that uses both packages</li>
+    </ul>
+    
+    <h3>Exercise 4: Random Treasure Simulator</h3>
+    <p>Create a game where:</p>
+    <ul>
+        <li>Player explores 5 treasure chests</li>
+        <li>Each chest has random gold (0-1000)</li>
+        <li>Random chance of cursed items (lose gold)</li>
+        <li>Display total treasure collected</li>
+    </ul>
+    
+    <h3>Exercise 5: Math Quiz</h3>
+    <p>Create a quiz program that:</p>
+    <ul>
+        <li>Generates random math problems</li>
+        <li>Uses Random and Math classes</li>
+        <li>Keeps track of score</li>
+        <li>Asks 5 questions</li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Summary: What You Learned</h2>
+    
+    <ul>
+        <li>✅ <strong>Packages:</strong> Organizing classes into groups</li>
+        <li>✅ <strong>Package naming convention:</strong> Using lowercase and reverse domain names</li>
+        <li>✅ <strong>Package structure:</strong> Matching folder structure to package declaration</li>
+        <li>✅ <strong>Custom Packages:</strong> Creating your own organized code</li>
+        <li>✅ <strong>Import statements:</strong> Using classes from other packages</li>
+        <li>✅ <strong>Java Standard Library:</strong> Built-in packages like java.util, java.lang</li>
+        <li>✅ <strong>Random class:</strong> nextInt(), nextDouble(), nextBoolean()</li>
+        <li>✅ <strong>Random number generation:</strong> Creating unpredictable values</li>
+        <li>✅ <strong>Java documentation:</strong> Finding and understanding API reference</li>
+        <li>✅ <strong>Math class:</strong> Common mathematical functions</li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Key Takeaways and Best Practices</h2>
+    
+    <h3>Organization is Key</h3>
+    <p>As your programs grow, use packages to keep code organized and maintainable.</p>
+    
+    <h3>Use the Java API</h3>
+    <p>The Java API has thousands of useful classes. Don't reinvent the wheel - use what's already there!</p>
+    
+    <h3>Learn to Read Documentation</h3>
+    <p>Becoming good at reading official documentation is a superpower that will help you throughout your programming career.</p>
+    
+    <h3>Import What You Need</h3>
+    <p>Always import the classes you use from other packages. The only exception is java.lang, which is auto-imported.</p>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Next Steps</h2>
+    <p>You've now learned:</p>
+    <ul>
+        <li>✅ Installation and Setup (Lesson 1)</li>
+        <li>✅ Variables and Data Types (Lesson 2)</li>
+        <li>✅ Classes and Objects (Lesson 3)</li>
+        <li>✅ Packages and Libraries (Lesson 4)</li>
+    </ul>
+    
+    <p><strong>Future lessons will teach you:</strong></p>
+    <ul>
+        <li>Conditionals (if/else statements)</li>
+        <li>Loops (for/while loops)</li>
+        <li>Arrays and Collections</li>
+        <li>Advanced Object-Oriented Programming</li>
+    </ul>
+    
+    <p>Keep practicing and experimenting - you're becoming a real programmer! 🎉</p>
+</div>
+
+<div class="section" style="margin-top: 40px; padding-top: 20px; border-top: 2px solid var(--istep-border);">
+    <p>
+        <a href="?page=lesson3" data-page="lesson3" style="padding: 10px 20px; background-color: var(--istep-orange-50); color: var(--istep-dunkelblau); text-decoration: none; border-radius: 5px; display: inline-block;">
+            ← Previous: Lesson 3
+        </a>
+    </p>
+</div>

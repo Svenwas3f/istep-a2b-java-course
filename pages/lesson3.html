@@ -1,0 +1,736 @@
+<div class="content-header">
+    <h1>Lesson 3: Classes and Objects - Understanding the Foundations of Java</h1>
+</div>
+
+<div class="section">
+    <h2>Welcome to Lesson 3! 🏗️</h2>
+    <p>You've learned the basics of Java, and now it's time to understand one of the most powerful concepts in programming: <strong>Classes and Objects</strong>. These concepts are the foundation of object-oriented programming, which is what makes Java so special and powerful!</p>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Part 1: What Are Classes and Objects?</h2>
+    
+    <h3>Understanding Objects in the Real World</h3>
+    <p>Think about your school. Every student in your school is different - they have different names, ages, interests, and grades. But all students have something in common:</p>
+    <ul>
+        <li>All students have a name</li>
+        <li>All students have an age</li>
+        <li>All students can study</li>
+        <li>All students can eat lunch</li>
+        <li>All students can take tests</li>
+    </ul>
+    
+    <p>In Java programming:</p>
+    <ul>
+        <li><strong>A Class</strong> is like a blueprint or template. It describes what a student is and what a student can do (the general plan)</li>
+        <li><strong>An Object</strong> is a specific instance based on that blueprint (like your friend Alex, who is a specific student)</li>
+    </ul>
+    
+    <p><strong>Real-world analogy:</strong></p>
+    <ul>
+        <li>A <strong>Class</strong> is like a cookie cutter - it defines the shape</li>
+        <li><strong>Objects</strong> are the actual cookies - they all have the same shape, but each one is unique</li>
+    </ul>
+    
+    <h3>Another Example: Cars</h3>
+    <p>Imagine all cars in the world:</p>
+    <ul>
+        <li>The <strong>Class "Car"</strong> defines: color, brand, speed, fuel level, doors</li>
+        <li>The <strong>Class "Car"</strong> defines actions: accelerate, brake, turn left, honk</li>
+        <li>Your <strong>Object (a specific car)</strong>: a red Toyota with 4 doors is one specific instance</li>
+        <li>My <strong>Object (another car)</strong>: a blue Honda with 2 doors is another specific instance</li>
+    </ul>
+    
+    <hr style="margin: 20px 0;">
+    
+    <h3>Classes Contain Two Things:</h3>
+    
+    <h4>1. Attributes (Properties/Data)</h4>
+    <p><strong>What the object looks like and what it stores:</strong></p>
+    <ul>
+        <li>For a Student class: name, age, grade, studentID</li>
+        <li>For a Car class: color, brand, speed, fuel</li>
+        <li>For a Pet class: name, age, type (dog/cat/bird)</li>
+    </ul>
+    
+    <h4>2. Methods (Actions/Behaviors)</h4>
+    <p><strong>What the object can do:</strong></p>
+    <ul>
+        <li>For a Student class: study(), takeTes(), eatLunch()</li>
+        <li>For a Car class: accelerate(), brake(), honk()</li>
+        <li>For a Pet class: bark(), eat(), sleep()</li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Part 2: Creating Your First Class</h2>
+    
+    <p>Now let's write actual code! We'll create a simple Student class.</p>
+    
+    <h3>Step 1: Create the Class File</h3>
+    <ol>
+        <li>Create a new folder called <code>lesson3</code> inside your <code>javacourse</code> package</li>
+        <li>Create a new file called <code>Student.java</code></li>
+    </ol>
+    
+    <h3>Step 2: Write the Student Class</h3>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson3;
+
+public class Student {
+    // Attributes (Properties)
+    public String name;
+    public int age;
+    public String grade;
+    public double gpa;
+    
+    // Method: Study
+    public void study(String subject) {
+        System.out.println(name + " is studying " + subject);
+    }
+    
+    // Method: Take a test
+    public void takeTest(String testName) {
+        System.out.println(name + " is taking the " + testName + " test");
+    }
+    
+    // Method: Eat lunch
+    public void eatLunch() {
+        System.out.println(name + " is eating lunch");
+    }
+    
+    // Method: Print student info
+    public void printInfo() {
+        System.out.println("Student: " + name);
+        System.out.println("Age: " + age);
+        System.out.println("Grade: " + grade);
+        System.out.println("GPA: " + gpa);
+    }
+}</code></pre>
+    
+    <p><strong>Let's understand what we created:</strong></p>
+    
+    <h4>Attributes (Lines 5-8):</h4>
+    <pre><code class="language-java">public String name;
+public int age;
+public String grade;
+public double gpa;</code></pre>
+    
+    <p>These are variables that every Student object will have. They store information about each student.</p>
+    
+    <h4>Methods (Lines 10-26):</h4>
+    <p>Each method is an action a student can perform:</p>
+    <ul>
+        <li><code>study(String subject)</code> - The student studies a specific subject</li>
+        <li><code>takeTest(String testName)</code> - The student takes a named test</li>
+        <li><code>eatLunch()</code> - The student eats lunch (no extra information needed)</li>
+        <li><code>printInfo()</code> - Displays all the student's information</li>
+    </ul>
+    
+    <h3>Step 3: Create a Program to Use Your Class</h3>
+    
+    <p>Now let's create objects (instances) from our Student class!</p>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson3;
+
+public class StudentProgram {
+    public static void main(String[] args) {
+        // Create the first student object
+        Student student1 = new Student();
+        student1.name = "Alex";
+        student1.age = 14;
+        student1.grade = "8th";
+        student1.gpa = 3.8;
+        
+        // Create the second student object
+        Student student2 = new Student();
+        student2.name = "Jordan";
+        student2.age = 15;
+        student2.grade = "9th";
+        student2.gpa = 3.5;
+        
+        // Use the objects
+        System.out.println("=== Student Information ===\n");
+        student1.printInfo();
+        System.out.println();
+        student2.printInfo();
+        
+        System.out.println("\n=== Student Activities ===\n");
+        student1.study("Mathematics");
+        student1.takeTest("Algebra Test");
+        student1.eatLunch();
+        
+        System.out.println();
+        student2.study("Science");
+        student2.takeTest("Biology Test");
+        student2.eatLunch();
+    }
+}</code></pre>
+    
+    <p><strong>Output:</strong></p>
+    <pre><code class="language-bash">=== Student Information ===
+
+Student: Alex
+Age: 14
+Grade: 8th
+GPA: 3.8
+
+Student: Jordan
+Age: 15
+Grade: 9th
+GPA: 3.5
+
+=== Student Activities ===
+
+Alex is studying Mathematics
+Alex is taking the Algebra Test test
+Alex is eating lunch
+
+Jordan is studying Science
+Jordan is taking the Biology Test test
+Jordan is eating lunch</code></pre>
+    
+    <h3>Understanding Object Creation</h3>
+    
+    <p>Let's break down this line:</p>
+    <pre><code class="language-java">Student student1 = new Student();</code></pre>
+    
+    <ul>
+        <li><code>Student</code> - This is the class type (like int, double, String)</li>
+        <li><code>student1</code> - This is the variable name (the object)</li>
+        <li><code>new</code> - This keyword creates a new object in memory</li>
+        <li><code>Student()</code> - This calls the constructor (creates the object)</li>
+    </ul>
+    
+    <p>Then we fill in the attributes:</p>
+    <pre><code class="language-java">student1.name = "Alex";
+student1.age = 14;</code></pre>
+    
+    <p>The dot <code>.</code> is used to access attributes and methods of an object.</p>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Part 3: Introduction to the String Class</h2>
+    
+    <p>You've actually been using a class all along! The <code>String</code> class is one of the most important built-in classes in Java.</p>
+    
+    <h3>What is a String?</h3>
+    <p>A <code>String</code> is a sequence of characters (text). It's actually an <code>Object</code> created from the String class!</p>
+    
+    <pre><code class="language-java">String message = "Hello, World!";
+String name = "Alex";</code></pre>
+    
+    <p>Even though we've been treating strings like simple variables, they're actually objects with built-in methods and properties!</p>
+    
+    <h3>Common String Methods</h3>
+    
+    <h4>1. Length - Finding the number of characters</h4>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson3;
+
+public class StringExample1 {
+    public static void main(String[] args) {
+        String message = "Hello, World!";
+        
+        // Get the length of the string
+        int length = message.length();
+        
+        System.out.println("Message: " + message);
+        System.out.println("Length: " + length);
+    }
+}</code></pre>
+    
+    <p><strong>Output:</strong></p>
+    <pre><code class="language-bash">Message: Hello, World!
+Length: 13</code></pre>
+    
+    <h4>2. toUpperCase() and toLowerCase() - Changing case</h4>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson3;
+
+public class StringExample2 {
+    public static void main(String[] args) {
+        String text = "Java Programming";
+        
+        System.out.println("Original: " + text);
+        System.out.println("Uppercase: " + text.toUpperCase());
+        System.out.println("Lowercase: " + text.toLowerCase());
+    }
+}</code></pre>
+    
+    <p><strong>Output:</strong></p>
+    <pre><code class="language-bash">Original: Java Programming
+Uppercase: JAVA PROGRAMMING
+Lowercase: java programming</code></pre>
+    
+    <h4>3. charAt() - Getting a character at a specific position</h4>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson3;
+
+public class StringExample3 {
+    public static void main(String[] args) {
+        String word = "Java";
+        
+        // Position 0 = 'J', Position 1 = 'a', Position 2 = 'v', Position 3 = 'a'
+        System.out.println("Character at position 0: " + word.charAt(0));
+        System.out.println("Character at position 1: " + word.charAt(1));
+        System.out.println("Character at position 2: " + word.charAt(2));
+        System.out.println("Character at position 3: " + word.charAt(3));
+    }
+}</code></pre>
+    
+    <p><strong>Output:</strong></p>
+    <pre><code class="language-bash">Character at position 0: J
+Character at position 1: a
+Character at position 2: v
+Character at position 3: a</code></pre>
+    
+    <p><strong>Important:</strong> Remember that counting starts at 0, not 1!</p>
+    
+    <h4>4. substring() - Extract part of a string</h4>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson3;
+
+public class StringExample4 {
+    public static void main(String[] args) {
+        String sentence = "Hello World";
+        
+        // Get substring from position 0 to 5
+        System.out.println(sentence.substring(0, 5));  // "Hello"
+        
+        // Get substring from position 6 to end
+        System.out.println(sentence.substring(6));     // "World"
+    }
+}</code></pre>
+    
+    <p><strong>Output:</strong></p>
+    <pre><code class="language-bash">Hello
+World</code></pre>
+    
+    <h4>5. indexOf() - Finding where text appears</h4>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson3;
+
+public class StringExample5 {
+    public static void main(String[] args) {
+        String sentence = "The quick brown fox";
+        
+        int index1 = sentence.indexOf("quick");
+        int index2 = sentence.indexOf("fox");
+        int index3 = sentence.indexOf("z");  // Not found
+        
+        System.out.println("Index of 'quick': " + index1);  // 4
+        System.out.println("Index of 'fox': " + index2);    // 16
+        System.out.println("Index of 'z': " + index3);      // -1 (not found)
+    }
+}</code></pre>
+    
+    <p><strong>Output:</strong></p>
+    <pre><code class="language-bash">Index of 'quick': 4
+Index of 'fox': 16
+Index of 'z': -1</code></pre>
+    
+    <p><strong>Note:</strong> If the text is not found, indexOf() returns <code>-1</code></p>
+    
+    <h4>6. equals() and equalsIgnoreCase() - Comparing strings</h4>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson3;
+
+public class StringExample6 {
+    public static void main(String[] args) {
+        String password1 = "MyPassword123";
+        String password2 = "MyPassword123";
+        String password3 = "mypassword123";
+        
+        System.out.println(password1.equals(password2));           // true
+        System.out.println(password1.equals(password3));           // false
+        System.out.println(password1.equalsIgnoreCase(password3)); // true
+    }
+}</code></pre>
+    
+    <p><strong>Output:</strong></p>
+    <pre><code class="language-bash">true
+false
+true</code></pre>
+    
+    <h4>7. replace() - Replace text</h4>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson3;
+
+public class StringExample7 {
+    public static void main(String[] args) {
+        String text = "I love cats";
+        
+        String newText = text.replace("cats", "dogs");
+        System.out.println("Original: " + text);
+        System.out.println("Replaced: " + newText);
+    }
+}</code></pre>
+    
+    <p><strong>Output:</strong></p>
+    <pre><code class="language-bash">Original: I love cats
+Replaced: I love dogs</code></pre>
+    
+    <h4>8. trim() - Remove spaces from beginning and end</h4>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson3;
+
+public class StringExample8 {
+    public static void main(String[] args) {
+        String text = "   Hello World   ";
+        
+        System.out.println("Original: '" + text + "'");
+        System.out.println("Trimmed: '" + text.trim() + "'");
+    }
+}</code></pre>
+    
+    <p><strong>Output:</strong></p>
+    <pre><code class="language-bash">Original: '   Hello World   '
+Trimmed: 'Hello World'</code></pre>
+    
+    <h3>Complete String Example Program</h3>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson3;
+
+public class StringDemo {
+    public static void main(String[] args) {
+        String name = "Programming";
+        String email = "student@school.com";
+        
+        System.out.println("=== STRING METHODS DEMO ===\n");
+        
+        System.out.println("Original string: " + name);
+        System.out.println("Length: " + name.length());
+        System.out.println("Uppercase: " + name.toUpperCase());
+        System.out.println("Lowercase: " + name.toLowerCase());
+        System.out.println("First character: " + name.charAt(0));
+        System.out.println("First 5 characters: " + name.substring(0, 5));
+        System.out.println();
+        
+        System.out.println("Email: " + email);
+        System.out.println("Contains '@': " + email.indexOf("@"));
+        System.out.println("Replaced: " + email.replace("school", "university"));
+        
+        String messageWithSpaces = "  Hello  World  ";
+        System.out.println("\nBefore trim: '" + messageWithSpaces + "'");
+        System.out.println("After trim: '" + messageWithSpaces.trim() + "'");
+    }
+}</code></pre>
+    
+    <p><strong>Output:</strong></p>
+    <pre><code class="language-bash">=== STRING METHODS DEMO ===
+
+Original string: Programming
+Length: 11
+Uppercase: PROGRAMMING
+Lowercase: programming
+First character: P
+First 5 characters: Progr
+
+Email: student@school.com
+Contains '@': 7
+Replaced: student@university.com
+
+Before trim: '  Hello  World  '
+After trim: 'Hello World'</code></pre>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Part 4: Creating More Complex Classes</h2>
+    
+    <h3>Example 1: Car Class</h3>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson3;
+
+public class Car {
+    // Attributes
+    public String brand;
+    public String model;
+    public String color;
+    public int year;
+    public double speed;
+    public double fuelLevel;
+    
+    // Methods
+    public void accelerate(double amount) {
+        speed += amount;
+        fuelLevel -= (amount * 0.5);
+        System.out.println(brand + " " + model + " accelerates. Speed: " + speed + " km/h");
+    }
+    
+    public void brake() {
+        speed = 0;
+        System.out.println(brand + " " + model + " stops. Speed: 0 km/h");
+    }
+    
+    public void honk() {
+        System.out.println(brand + " " + model + " says: HONK HONK!");
+    }
+    
+    public void displayInfo() {
+        System.out.println("Car: " + year + " " + brand + " " + model);
+        System.out.println("Color: " + color);
+        System.out.println("Current Speed: " + speed + " km/h");
+        System.out.println("Fuel Level: " + fuelLevel + "%");
+    }
+}</code></pre>
+    
+    <h3>Example 2: Dog Class</h3>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson3;
+
+public class Dog {
+    // Attributes
+    public String name;
+    public String breed;
+    public int age;
+    public double weight;
+    
+    // Methods
+    public void bark() {
+        System.out.println(name + " says: Woof! Woof!");
+    }
+    
+    public void eat(String food) {
+        System.out.println(name + " is eating " + food);
+    }
+    
+    public void sleep() {
+        System.out.println(name + " is sleeping: Zzzzz...");
+    }
+    
+    public void play() {
+        System.out.println(name + " is playing happily!");
+    }
+    
+    public void displayInfo() {
+        System.out.println("Dog: " + name);
+        System.out.println("Breed: " + breed);
+        System.out.println("Age: " + age + " years");
+        System.out.println("Weight: " + weight + " kg");
+    }
+}</code></pre>
+    
+    <h3>Example 3: Using the Car and Dog Classes</h3>
+    
+    <pre><code class="language-java">package al.istep.javacourse.lesson3;
+
+public class AnimalAndCarDemo {
+    public static void main(String[] args) {
+        // Create a dog
+        Dog myDog = new Dog();
+        myDog.name = "Max";
+        myDog.breed = "Golden Retriever";
+        myDog.age = 3;
+        myDog.weight = 30.5;
+        
+        System.out.println("=== MY DOG ===");
+        myDog.displayInfo();
+        System.out.println();
+        myDog.bark();
+        myDog.eat("dog food");
+        myDog.play();
+        myDog.sleep();
+        
+        System.out.println("\n=== MY CAR ===");
+        
+        // Create a car
+        Car myCar = new Car();
+        myCar.brand = "Toyota";
+        myCar.model = "Camry";
+        myCar.color = "Blue";
+        myCar.year = 2023;
+        myCar.speed = 0;
+        myCar.fuelLevel = 100;
+        
+        myCar.displayInfo();
+        System.out.println();
+        myCar.accelerate(50);
+        myCar.accelerate(30);
+        myCar.honk();
+        myCar.brake();
+    }
+}</code></pre>
+    
+    <p><strong>Output:</strong></p>
+    <pre><code class="language-bash">=== MY DOG ===
+Dog: Max
+Breed: Golden Retriever
+Age: 3 years
+Weight: 30.5 kg
+
+Max says: Woof! Woof!
+Max is eating dog food
+Max is playing happily!
+Max is sleeping: Zzzzz...
+
+=== MY CAR ===
+Car: 2023 Toyota Camry
+Color: Blue
+Current Speed: 0 km/h
+Fuel Level: 100.0%
+
+Toyota Camry accelerates. Speed: 50.0 km/h
+Toyota Camry accelerates. Speed: 80.0 km/h
+Toyota Camry says: HONK HONK!
+Toyota Camry stops. Speed: 0 km/h</code></pre>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Part 5: Important Concepts</h2>
+    
+    <h3>1. The public Keyword</h3>
+    <p>When we write <code>public String name;</code>, we're saying that anyone can access this attribute from outside the class. The <code>public</code> keyword makes it accessible.</p>
+    
+    <h3>2. The this Keyword (Advanced)</h3>
+    <p>Inside a class, you can use <code>this</code> to refer to the current object:</p>
+    <pre><code class="language-java">public void printName() {
+    System.out.println(this.name);  // Same as just: System.out.println(name);
+}</code></pre>
+    
+    <h3>3. Creating Objects vs. Using Classes</h3>
+    <ul>
+        <li>The <strong>class</strong> is the blueprint (Student.java)</li>
+        <li>The <strong>object</strong> is an instance of that class (student1, student2)</li>
+        <li>You can create many objects from one class</li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Common Mistakes and How to Fix Them</h2>
+    
+    <h3>Mistake 1: Forgetting the new keyword</h3>
+    <p><strong>Wrong:</strong></p>
+    <pre><code class="language-java">Student student1;
+student1.name = "Alex";  // ❌ Error: student1 is null</code></pre>
+    
+    <p><strong>Correct:</strong></p>
+    <pre><code class="language-java">Student student1 = new Student();  // ✅ Create the object first
+student1.name = "Alex";</code></pre>
+    
+    <h3>Mistake 2: Using method name with parentheses when accessing attributes</h3>
+    <p><strong>Wrong:</strong></p>
+    <pre><code class="language-java">int length = message.length();  // ✅ This IS correct - length() is a method
+String upper = text.toUpperCase;  // ❌ Missing parentheses</code></pre>
+    
+    <p><strong>Correct:</strong></p>
+    <pre><code class="language-java">int length = message.length();           // ✅ Method call
+String upper = text.toUpperCase();       // ✅ Method call with ()</code></pre>
+    
+    <h3>Mistake 3: String comparison with ==</h3>
+    <p><strong>Wrong:</strong></p>
+    <pre><code class="language-java">String password1 = "secret";
+String password2 = "secret";
+if (password1 == password2) {  // ❌ Wrong way to compare
+    System.out.println("Same!");
+}</code></pre>
+    
+    <p><strong>Correct:</strong></p>
+    <pre><code class="language-java">String password1 = "secret";
+String password2 = "secret";
+if (password1.equals(password2)) {  // ✅ Right way to compare strings
+    System.out.println("Same!");
+}</code></pre>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Practice Exercises</h2>
+    
+    <h3>Exercise 1: Book Class</h3>
+    <p>Create a Book class with:</p>
+    <ul>
+        <li>Attributes: title, author, pages, isbn</li>
+        <li>Methods: displayInfo(), readPages(int pages), getAuthor()</li>
+    </ul>
+    <p>Then create 2 book objects and display their information.</p>
+    
+    <h3>Exercise 2: Video Game Class</h3>
+    <p>Create a VideoGame class with:</p>
+    <ul>
+        <li>Attributes: title, developer, rating, year</li>
+        <li>Methods: play(), pause(), displayInfo()</li>
+    </ul>
+    <p>Then create and use at least 2 game objects.</p>
+    
+    <h3>Exercise 3: String Manipulation</h3>
+    <p>Write a program that:</p>
+    <ul>
+        <li>Takes a sentence as input</li>
+        <li>Displays the sentence in uppercase</li>
+        <li>Displays the sentence in lowercase</li>
+        <li>Shows the length</li>
+        <li>Shows the first 3 characters</li>
+    </ul>
+    
+    <h3>Exercise 4: Person Class</h3>
+    <p>Create a Person class with:</p>
+    <ul>
+        <li>Attributes: firstName, lastName, age, email</li>
+        <li>Methods: getFullName(), greet(), displayInfo()</li>
+    </ul>
+    <p>Create 3 different person objects and have them greet each other.</p>
+    
+    <h3>Exercise 5: Email Validator</h3>
+    <p>Write a program that checks if an email is valid by:</p>
+    <ul>
+        <li>Checking if it contains '@' character</li>
+        <li>Checking if it contains '.' after the '@'</li>
+        <li>Using String methods like indexOf()</li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Summary: What You Learned</h2>
+    
+    <ul>
+        <li>✅ <strong>Classes:</strong> Blueprints that define what objects can do and have</li>
+        <li>✅ <strong>Objects:</strong> Specific instances created from classes</li>
+        <li>✅ <strong>Attributes:</strong> Variables that store data in objects</li>
+        <li>✅ <strong>Methods:</strong> Functions that define actions objects can perform</li>
+        <li>✅ <strong>Creating Objects:</strong> Using the <code>new</code> keyword</li>
+        <li>✅ <strong>String Class:</strong> A built-in class for working with text</li>
+        <li>✅ <strong>Common String Methods:</strong> length(), toUpperCase(), toLowerCase(), charAt(), substring(), indexOf(), equals(), replace(), trim()</li>
+        <li>✅ <strong>The dot operator (.):</strong> Used to access attributes and methods</li>
+    </ul>
+</div>
+
+<hr>
+
+<div class="section">
+    <h2>Next Lesson Preview</h2>
+    <p>In Lesson 4, you'll learn about:</p>
+    <ul>
+        <li>Java Packages - Organizing your code</li>
+        <li>The Random Class - Generating random numbers</li>
+        <li>Using Java Documentation - Finding information about built-in classes</li>
+        <li>How to use the Java API (Application Programming Interface)</li>
+    </ul>
+    <p>You're making amazing progress! Keep it up! 🚀</p>
+</div>
+
+<div class="section" style="margin-top: 40px; padding-top: 20px; border-top: 2px solid var(--istep-border);">
+    <p>
+        <a href="?page=lesson2" data-page="lesson2" style="padding: 10px 20px; background-color: var(--istep-orange-50); color: var(--istep-dunkelblau); text-decoration: none; border-radius: 5px; display: inline-block; margin-right: 10px;">
+            ← Previous: Lesson 2
+        </a>
+        <a href="?page=lesson4" data-page="lesson4" style="padding: 10px 20px; background-color: var(--istep-dunkelblau); color: white; text-decoration: none; border-radius: 5px; display: inline-block;">
+            Next: Lesson 4 →
+        </a>
+    </p>
+</div>
